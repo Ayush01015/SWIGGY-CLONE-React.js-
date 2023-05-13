@@ -1,0 +1,37 @@
+{
+  "name": "learning-react",
+  "version": "1.0.0",
+  "description": "learning react with basics",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayush01015/Learning-React-2023.git"
+  },
+  "author": "Ayush Shrivastav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayush01015/Learning-React-2023/issues"
+  },
+  "homepage": "https://github.com/Ayush01015/Learning-React-2023#readme",
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.8",
+    "@mui/styled-engine-sc": "^5.11.0",
+    "@parcel/transformer-js": "^2.8.3",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
+    "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  }
+}
