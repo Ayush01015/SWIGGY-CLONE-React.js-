@@ -9,18 +9,20 @@ const Search = ({searchInput,setSearchInput,setfilteredRestaurants,allRestaurant
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button
-          className="search-btn"
-          onClick={() => {
-            //need to filter the data
-            const data = filterData(searchInput, allRestaurants);
-            // update the state - restaurants
-            setfilteredRestaurants(data);
-            // setSearchInput("Clicked");
-          }}
-        >
-          Search
-        </button>
+        <div>
+          <button
+            className="search-btn"
+            onClick={() => {
+              //need to filter the data
+              const data = filterData(searchInput, allRestaurants);
+              // update the state - restaurants
+              setfilteredRestaurants(data);
+              // setSearchInput("Clicked");
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
     )
 }
