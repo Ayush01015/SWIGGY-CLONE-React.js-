@@ -27,33 +27,23 @@ const RestaurantsMenu = () => {
             alt="resImg"
           />
         </div>
-        <div className="header-info menu-header-mg2">
-          <span
-            style={{
-              fontSize: "1.7rem",
-              fontWeight: "bold",
-            }}
-          >
-            {restaurant?.cards[0]?.card?.card?.info?.name}
-          </span>
-          <span style={{ fontSize: "0.8rem" }}>
-            {restaurant?.cuisines?.join(", ")}
-          </span>
-          <span style={{ fontSize: "1rem" }}>
-            {restaurant?.cards[0]?.card?.card?.info?.areaName}
-          </span>
-          <span style={{ fontSize: "1rem" }}>
-            {restaurant?.cards[0]?.card?.card?.info?.city}
-          </span>
+        <div className="header-info">
+        <div className="menu-head-content"> 
+            <p className="res-menu-itm res-name">
+              {restaurant?.cards[0]?.card?.card?.info?.name}
+            </p>
+            <p className="res-menu-itm">
+              {restaurant?.cards[0]?.card?.card?.info?.cuisines?.join(", ")}
+            </p>
+            <p className="res-menu-itm">
+              {restaurant?.cards[0]?.card?.card?.info?.areaName}
+            </p>
+            <p className="res-menu-itm">
+              {restaurant?.cards[0]?.card?.card?.info?.city}
+            </p>
+        </div>
           <div
-            style={{
-              // border:"1px solid grey",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItem: "center",
-              padding: "5px",
-            }}
-          >
+          className="menu-footer">
             <span className="sub-menu-item">
               {restaurant?.cards[0]?.card?.card?.info?.avgRatingString === "NEW"
                 ? "No Rating"
@@ -85,7 +75,7 @@ const RestaurantsMenu = () => {
                   <div className="menu-item-con-data">
                     <p
                       style={{
-                        fontSize: "1.3rem",
+                        fontSize: "1rem",
                         fontWeight: "bold",
                       }}
                     >
