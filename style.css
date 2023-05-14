@@ -220,6 +220,8 @@ body{
     text-align:center;
     padding:1rem;
     font-family: 'Montserrat', sans-serif;
+    /* position: fixed; */
+    /* margin-top: -60px; */
 }
 @media(min-width:700px){
     .header{

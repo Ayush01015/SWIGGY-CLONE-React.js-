@@ -7,10 +7,13 @@ const Header = () => {
     <div
       className="header"    >
       <span style={{ cursor: "pointer", fontSize: "2rem",color:"white",marginTop:"4px" }}>
+        <Link to="/">
         swi<span style={{ color: "#F99417",}}>G</span>ker
+        </Link>
       </span>
       <ul className="nav-items">
         {/* have to add pseudo class active for 1st item* */}
+        {console.log(useState())}
         <li className="li-item" style={{ color: "#F99417" }}>
           <Link to="/">Home</Link>
         </li>
