@@ -10,14 +10,14 @@ a{
     all: unset;
 }
 body{
-    background-color: #F5F5F5;
+    background-color: white;
 }
 .body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
 }
 
 .li-item{
@@ -35,7 +35,7 @@ body{
 
 .card-component{
     /* border:1px solid red; */
-    margin: 50px 15px 10px 15px;
+    margin: 15px;
     font-family: 'Montserrat', sans-serif;
 }
 .card{
@@ -239,37 +239,48 @@ body{
     }
 }
 .body-header{
+    padding: 0.5em 0.5em 0em 0.5em;
+    border: 1px solid red;
     display: flex;
-    padding: 2rem;
-    /* border: 1px solid red; */
-    align-items: center;
-    margin: auto;
-    width: 50%;
-    justify-content: space-between;
-    /* remove later*/
-    /* margin-bottom: 7rem;  */
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center; 
+}
+.location-selector{
+    width: 100%;  
+    /* border: 1px solid fuchsia; */
+    margin-top: 1rem;
+    max-width: 250px;
+    
 }
 .search-component{
-    /* margin-top: 50px; */
-    /* text-align: center; */
+    width: 50%;
+    max-width: 700px;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .search-input{
-    font-size: 1.4rem;
-    padding: 5px;
+    font-size: 1.2rem;
+    padding: 0.4em;
     border-radius: 3px;
-    width: 80%;
+    border: 1px solid #F99417;
+    width: 68%;
     max-width: 350px;
-    min-width: 252px;
+    min-width: 0px;
+    /* background-color: #FFB84C; */
 }
 .search-btn{
-    font-size: 1.4rem;
-    padding:  6px 10px;
-    margin-top: 0.7em;
+    font-size: 1.1rem;
+    padding:  7px 12px;
+    /* margin-top: 0.7em; */
     background-color: #F99417;
     color: #000;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    /* margin-left: 1rem; */
     /* transition: 0.3s all ease-in-out; */
 }
 
@@ -289,5 +300,17 @@ body{
     .search-btn{
         margin-top: 0;
         margin-left: 1rem;
+    }
+}
+
+@media(min-width:700px) {
+    .body-header{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .location-selector{
+        /* margin-top: 10px; */
+        padding-bottom: 23px;
     }
 }

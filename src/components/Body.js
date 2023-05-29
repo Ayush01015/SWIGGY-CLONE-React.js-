@@ -54,17 +54,17 @@ const Body = () => {
   ) : (
     <>
       <div className="body-header">
-        <Locator
-          latitude={latitude}
-          setLatitude={setLatitude}
-          longitude={longitude}
-          setLongitude={setLongitude}
-        />
         <Search
           searchInput={searchInput}
           setSearchInput={setSearchInput}
           setfilteredRestaurants={setfilteredRestaurants}
           allRestaurants={allRestaurants}
+        />
+          <Locator
+          latitude={latitude}
+          setLatitude={setLatitude}
+          longitude={longitude}
+          setLongitude={setLongitude}
         />
       </div>
       <div className="body">
