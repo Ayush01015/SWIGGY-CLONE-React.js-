@@ -9,7 +9,6 @@ const Search = ({searchInput,setSearchInput,setfilteredRestaurants,allRestaurant
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <div>
           <button
             className="search-btn"
             onClick={() => {
@@ -22,7 +21,6 @@ const Search = ({searchInput,setSearchInput,setfilteredRestaurants,allRestaurant
           >
             Search
           </button>
-        </div>
       </div>
     )
 }

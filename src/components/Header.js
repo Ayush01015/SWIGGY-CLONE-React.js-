@@ -13,7 +13,7 @@ const Header = () => {
       </span>
       <ul className="nav-items">
         {/* have to add pseudo class active for 1st item* */}
-        {console.log(useState())}
+        {/* {console.log(useState())} */}
         <li className="li-item" style={{ color: "#F99417" }}>
           <Link to="/">Home</Link>
         </li>

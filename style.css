@@ -238,15 +238,20 @@ body{
         margin-right: 1rem;
     }
 }
-
-.search-component{
-    /* border: 1px solid red; */
-    /* padding: 50px 0px 0px 0px; */
-    margin-top: 50px;
+.body-header{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 2rem;
+    border: 1px solid red;
     align-items: center;
+    margin: auto;
+    width: 50%;
+    justify-content: space-between;
+    /* remove later*/
+    margin-bottom: 7rem; 
+}
+.search-component{
+    /* margin-top: 50px; */
+    /* text-align: center; */
 }
 .search-input{
     font-size: 1.4rem;

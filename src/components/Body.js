@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { filterData } from "../Utils/Utils";
 import useOnline from "../Utils/useOnline";
 import Search from "./Search";
+import Locator from "./Locator";
+// "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.083592280167409&lng=80.21448667920546&page_type=DESKTOP_WEB_LISTING";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
@@ -36,12 +38,17 @@ const Body = () => {
     <ShimmerUI />
   ) : (
     <>
+      <div
+        className="body-header"
+      >
+      <Locator/>
       <Search
         searchInput={searchInput}
         setSearchInput={setSearchInput}
         setfilteredRestaurants={setfilteredRestaurants}
         allRestaurants={allRestaurants}
       />
+      </div>
       <div className="body">
         {filteredRestaurants.length === 0 ? (
           <h1>No Restaurant Found</h1>

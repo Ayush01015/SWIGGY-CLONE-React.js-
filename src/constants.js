@@ -5,8 +5,11 @@
 
 export const IMG_CDN_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+// export const SWIGGY_PUBLIC_API =
+  // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.627981&lng=77.3648567&page_type=DESKTOP_WEB_LISTING";
+  // 13.083592280167409, 80.21448667920546
 export const SWIGGY_PUBLIC_API =
-  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.627981&lng=77.3648567&page_type=DESKTOP_WEB_LISTING";
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.083592280167409&lng=80.21448667920546&page_type=DESKTOP_WEB_LISTING";
   //not working anymore
 export const SWIGGY_MENU_API =
   "https://www.swiggy.com/dapi/menu/v4/full?lat=28.627981&lng=77.3648567&menuId="; 
