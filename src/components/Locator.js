@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import axios from "axios";
-import { SWIGGY_PUBLIC_API } from "../constants";
-import { json } from "react-router-dom";
 
 const API_END_POINT = `https://api.openweathermap.org/data/2.5/onecall?`;
 const API_KEY = `b4d82e597d9b74b91cb091d0a8c07795`;
@@ -60,11 +57,22 @@ const locations = [
 },
 ];
 
+const Locator = ({latitude,longitude,setLatitude,setLongitude}) => {
 
-const Locator = () => {
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+
   const [selectedLocation, setSelectedLocation] = useState(null);
+
+  console.log("-->",latitude,"-->",longitude);
+
+  async function getRestaurantsByLocation(){
+    const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
+    const json = await data.json();
+    console.log("updated Json: ", json);
+  }
+  
+  useEffect(()=>{
+    getRestaurantsByLocation();
+  },[latitude,longitude])
 
   const handleLocationChange = (event, value) => {
     if(value!==null)
@@ -79,26 +87,21 @@ const Locator = () => {
     console.log("logitude",longitude)
   }
 
-  async function getRestaurantsByLocation(){
-    const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
-    const json = await data.json();
-  }
-  useEffect(()=>{
-    getRestaurantsByLocation();
-  },[])
+
   
   return (
     <div className="locator">   
-      <Autocomplete
-      options={locations}
-      getOptionLabel={(option) => option.label}
-      value={selectedLocation}
-      onChange={handleLocationChange}
-      sx={{width:280}}
-      renderInput={(params) => <TextField {...params} label="Select a location" variant="outlined" />}
-    />
+        <Autocomplete
+        options={locations}
+        getOptionLabel={(option) => option.label}
+        value={selectedLocation}
+        onChange={handleLocationChange}
+        sx={{width:280}}
+        renderInput={(params) => <TextField {...params} label="Select a location" variant="outlined" />}
+        />
     </div>
   );
+
 };
 
 export default Locator;

@@ -8,25 +8,41 @@ import { filterData } from "../Utils/Utils";
 import useOnline from "../Utils/useOnline";
 import Search from "./Search";
 import Locator from "./Locator";
+import getCoordinates  from "../Utils/getCoordinates";
+
 // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.083592280167409&lng=80.21448667920546&page_type=DESKTOP_WEB_LISTING";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
+  const [latitude, setLatitude] = useState(13.083592280167409);
+  const [longitude, setLongitude] = useState(80.21448667920546);
+
+
 
   async function getRestaurants() {
     //fetching data fromm API
-    const data = await fetch(SWIGGY_PUBLIC_API);
+    const data = await fetch(
+      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
+    );
     const json = await data.json();
     // console.log("Json: ", json);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in restaurants
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in filtered restaurants for search.
   }
 
+
   useEffect(() => {
     getRestaurants();
-  }, []);
+  }, [latitude,longitude]);
+  
+    // use this function to get your location coordinates and set the default value of latitude and longitude 
+    // for now i am using static data
+    // const coords = getCoordinates();
+    // console.log("coords-->",coords.lat,coords.long);
+    
+
 
   const isOnline = useOnline();
   if (!isOnline) return <h1>Check your Internet Connection...</h1>;
@@ -38,16 +54,19 @@ const Body = () => {
     <ShimmerUI />
   ) : (
     <>
-      <div
-        className="body-header"
-      >
-      <Locator/>
-      <Search
-        searchInput={searchInput}
-        setSearchInput={setSearchInput}
-        setfilteredRestaurants={setfilteredRestaurants}
-        allRestaurants={allRestaurants}
-      />
+      <div className="body-header">
+        <Locator
+          latitude={latitude}
+          setLatitude={setLatitude}
+          longitude={longitude}
+          setLongitude={setLongitude}
+        />
+        <Search
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          setfilteredRestaurants={setfilteredRestaurants}
+          allRestaurants={allRestaurants}
+        />
       </div>
       <div className="body">
         {filteredRestaurants.length === 0 ? (

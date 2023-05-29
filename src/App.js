@@ -13,6 +13,7 @@ import Deals from "./components/Deals";
 import RestaurantsMenu from "./components/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
 
+
 /*
 Chunking
 code splitting
@@ -29,7 +30,7 @@ const SwiGker = () => {
     <>
       <Header />
       {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
-      <Outlet />
+        <Outlet />
       <Footer />
     </>
   );
