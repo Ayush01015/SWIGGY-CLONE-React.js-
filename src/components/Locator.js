@@ -6,11 +6,19 @@ const API_END_POINT = `https://api.openweathermap.org/data/2.5/onecall?`;
 const API_KEY = `b4d82e597d9b74b91cb091d0a8c07795`;
 
 const locations = [
-{
+  {
+      label: "Firozabad (Default)",
+      coordiantes:{
+      latitude: "27.166821899820434",
+      longitude: "78.39047234580343",
+      }
+  },
+  {
     label: "Mumbai",
     coordiantes:{
-        latitude: "19.093857566851742",
-        longitude: "72.88116849297687",
+        latitude: "19.053883935986374",
+        longitude: "72.82328435649667",
+  
     }
 },
 {
@@ -30,15 +38,8 @@ const locations = [
 {
     label: "Gujrat",
     coordiantes:{
-    latitude: "23.12851035374904",
-    longitude: "70.7938991819456",
-    }
-},
-{
-    label: "Firozabad",
-    coordiantes:{
-    latitude: "27.166821899820434",
-    longitude: "78.39047234580343",
+      latitude: "22.302506799084554",
+      longitude: "70.79744525376664", 
     }
 },
 {
@@ -55,6 +56,34 @@ const locations = [
     longitude: "73.8670828594802",
     }
 },
+{
+    label: "Lucknow",
+    coordiantes:{
+    latitude: "26.895328986742207",
+    longitude: "80.95687768039994",
+    }
+},
+{
+    label: "Prayagraj",
+    coordiantes:{
+    latitude: "25.49509801840442",
+    longitude: "81.85923314782474",
+    }
+},
+{
+    label: "Goa",
+    coordiantes:{
+    latitude: "15.297654742740878",
+    longitude: "74.10302124578317",
+    }
+},
+{
+    label: "Hyderabad",
+    coordiantes:{
+    latitude: "17.3885890377193",
+    longitude: "78.47747030947507",
+    }
+}
 ];
 
 const Locator = ({latitude,longitude,setLatitude,setLongitude}) => {
@@ -62,17 +91,17 @@ const Locator = ({latitude,longitude,setLatitude,setLongitude}) => {
 
   const [selectedLocation, setSelectedLocation] = useState(null);
 
-  console.log("-->",latitude,"-->",longitude);
+  // console.log("-->",latitude,"-->",longitude);
 
-  async function getRestaurantsByLocation(){
-    const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
-    const json = await data.json();
-    console.log("updated Json: ", json);
-  }
+  // async function getRestaurantsByLocation(){
+  //   const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
+  //   const json = await data.json();
+
+  // }
   
-  useEffect(()=>{
-    getRestaurantsByLocation();
-  },[latitude,longitude])
+  // useEffect(()=>{
+  //   getRestaurantsByLocation();
+  // },[latitude,longitude])
 
   const handleLocationChange = (event, value) => {
     if(value!==null)
@@ -82,13 +111,7 @@ const Locator = ({latitude,longitude,setLatitude,setLongitude}) => {
     setLongitude(longitude);}
   };
 
-  {
-    console.log("latitude",latitude)
-    console.log("logitude",longitude)
-  }
 
-
-  
   return (
     <div className="locator">   
         <Autocomplete
@@ -96,7 +119,7 @@ const Locator = ({latitude,longitude,setLatitude,setLongitude}) => {
         getOptionLabel={(option) => option.label}
         value={selectedLocation}
         onChange={handleLocationChange}
-        sx={{width:280}}
+        sx={{width:280, border:"none"}}
         renderInput={(params) => <TextField {...params} label="Select a location" variant="outlined" />}
         />
     </div>

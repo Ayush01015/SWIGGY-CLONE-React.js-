@@ -15,8 +15,8 @@ export default  getCoordinates = () => {
       const showPosition = (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        console.log("Latitude:-> " + latitude);
-        console.log("Longitude:-> " + longitude);
+        // console.log("Latitude:-> " + latitude);
+        // console.log("Longitude:-> " + longitude);
         setCoords({
             lat:latitude,
             long:longitude,

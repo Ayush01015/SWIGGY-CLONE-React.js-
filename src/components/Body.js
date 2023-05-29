@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
-// import { restaurantsList } from "../constants";
+
 import { SWIGGY_PUBLIC_API } from "../constants";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -10,21 +10,20 @@ import Search from "./Search";
 import Locator from "./Locator";
 import getCoordinates  from "../Utils/getCoordinates";
 
-// "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.083592280167409&lng=80.21448667920546&page_type=DESKTOP_WEB_LISTING";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
-  const [latitude, setLatitude] = useState(13.083592280167409);
-  const [longitude, setLongitude] = useState(80.21448667920546);
+  const [latitude, setLatitude] = useState(27.166821899820434);
+  const [longitude, setLongitude] = useState(78.39047234580343);
 
 
 
   async function getRestaurants() {
     //fetching data fromm API
     const data = await fetch(
-      `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
+      `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
     // console.log("Json: ", json);
@@ -47,7 +46,7 @@ const Body = () => {
   const isOnline = useOnline();
   if (!isOnline) return <h1>Check your Internet Connection...</h1>;
 
-  if (!allRestaurants) return <h1>Please Reload Something Went Wrong</h1>; //early return
+  if (!allRestaurants) return <h1>No Restaurants Founds</h1>; //early return
 
   // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
   return allRestaurants?.length === 0 ? (
