@@ -67,7 +67,13 @@ const Locator = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
 
-
+  async function getRestaurantsByLocation(){
+    const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
+    const json = await data.json();
+  }
+  useEffect(()=>{
+    getRestaurantsByLocation();
+  },[])
   
   return (
     <div className="locator">   
