@@ -66,6 +66,18 @@ const Locator = () => {
   const [longitude, setLongitude] = useState("");
   const [selectedLocation, setSelectedLocation] = useState(null);
 
+  const handleLocationChange = (event, value) => {
+    if(value!==null)
+    {const {latitude,longitude} = value.coordiantes;
+    setSelectedLocation(value);
+    setLatitude(latitude);
+    setLongitude(longitude);}
+  };
+
+  {
+    console.log("latitude",latitude)
+    console.log("logitude",longitude)
+  }
 
   async function getRestaurantsByLocation(){
     const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
