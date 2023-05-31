@@ -1,0 +1,64 @@
+
+.banner-component{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+.banner-item{
+    max-height:215px;
+    border-radius: 12px;
+    border: 1px solid gainsboro;
+    width: 45%;
+    margin: 0.7em 0em;
+}
+.banner-item > img{
+    width: 100%;
+    height: 5rem;
+    object-fit: cover;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.banner-details{
+    padding:0em 1em 1em 0.4em; 
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.banner-details > span{
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+@media(min-width:475px){
+    .banner-component{
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .banner-item{
+        width: 32%;
+        margin: 0;
+        padding: 0;
+    }
+    .banner-item > img{
+        height: 7rem;
+    }
+}
+@media(min-width:915px){
+    .banner-component{
+        padding: 0em 2em;
+        width: 85%;
+    }
+    .banner-item{
+        width: 33%;
+        max-width: 370px;
+        margin: 0em 0.3em;
+    }
+    .banner-item > img{
+        height: 10rem;
+    }
+}

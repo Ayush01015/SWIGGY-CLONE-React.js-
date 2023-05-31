@@ -8,7 +8,7 @@ const Header = () => {
       className="header"    >
       <span style={{ cursor: "pointer", fontSize: "2rem",color:"white",marginTop:"4px" }}>
         <Link to="/">
-        swi<span style={{ color: "#F99417",}}>G</span>ker
+        swi<span style={{ color: "#F99417",fontWeight:"600",fontSize:"2.5rem"}}>G</span>er
         </Link>
       </span>
       <ul className="nav-items">

@@ -9,14 +9,14 @@ import useOnline from "../Utils/useOnline";
 import Search from "./Search";
 import Locator from "./Locator";
 import getCoordinates  from "../Utils/getCoordinates";
-
+import Banner from "./Banner/Banner";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
-  const [latitude, setLatitude] = useState(27.166821899820434);
-  const [longitude, setLongitude] = useState(78.39047234580343);
+  const [latitude, setLatitude] = useState(28.696701100186587);
+  const [longitude, setLongitude] = useState(77.22774819099834);
 
 
 
@@ -26,7 +26,7 @@ const Body = () => {
       `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
-    // console.log("Json: ", json);
+    console.log("Json: ", json);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in restaurants
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in filtered restaurants for search.
   }
@@ -67,6 +67,7 @@ const Body = () => {
           setLongitude={setLongitude}
         />
       </div>
+      <Banner/>
       <div className="body">
         {filteredRestaurants.length === 0 ? (
           <h1>No Restaurant Found</h1>

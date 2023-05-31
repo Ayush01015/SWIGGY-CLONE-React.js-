@@ -4,29 +4,22 @@ import Autocomplete from "@mui/material/Autocomplete";
 import Paper from '@mui/material/Paper';
 // import Listbox from '@mui/material/Listbox';
 
-const API_END_POINT = `https://api.openweathermap.org/data/2.5/onecall?`;
-const API_KEY = `b4d82e597d9b74b91cb091d0a8c07795`;
+// const API_END_POINT = `https://api.openweathermap.org/data/2.5/onecall?`;
+// const API_KEY = `b4d82e597d9b74b91cb091d0a8c07795`;
 
 const locations = [
   {
-    label: "Firozabad (Default)",
-    coordiantes: {
-      latitude: "27.166821899820434",
-      longitude: "78.39047234580343",
-    },
-  },
-  {
-    label: "Mumbai",
-    coordiantes: {
-      latitude: "19.053883935986374",
-      longitude: "72.82328435649667",
-    },
-  },
-  {
-    label: "Delhi",
+    label: "Delhi (Default)",
     coordiantes: {
       latitude: "28.696701100186587",
       longitude: "77.22774819099834",
+    },
+  },
+  {
+    label: "Mumbai ",
+    coordiantes: {
+      latitude: "19.053883935986374",
+      longitude: "72.82328435649667",
     },
   },
   {
@@ -72,13 +65,6 @@ const locations = [
     },
   },
   {
-    label: "Goa",
-    coordiantes: {
-      latitude: "15.297654742740878",
-      longitude: "74.10302124578317",
-    },
-  },
-  {
     label: "Hyderabad",
     coordiantes: {
       latitude: "17.3885890377193",
@@ -90,17 +76,28 @@ const locations = [
 const Locator = ({ latitude, longitude, setLatitude, setLongitude }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
-  // console.log("-->",latitude,"-->",longitude);
-
-  // async function getRestaurantsByLocation(){
-  //   const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
-  //   const json = await data.json();
-
-  // }
-
-  // useEffect(()=>{
-  //   getRestaurantsByLocation();
+  
+  //   async function getRestaurantsByLocation(){
+    //   const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
+    //   const json = await data.json();
+    
+    // }
+    
+    // useEffect(()=>{
+      //   getRestaurantsByLocation();
   // },[latitude,longitude])
+
+//   async function openAPI(){
+//     console.log(`${API_END_POINT}&lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_KEY}`)
+//     const data = await fetch(`${API_END_POINT}&lat=${33.44}&lon=${94.04}&exclude=hourly,daily&appid=${API_KEY}`
+//         );
+//     const json = await data.json();
+//     console.log("0000",json)
+//   }
+
+//   useEffect(()=>{
+//     openAPI();
+//   },[])
 
   const handleLocationChange = (event, value) => {
     if (value !== null) {
@@ -111,6 +108,7 @@ const Locator = ({ latitude, longitude, setLatitude, setLongitude }) => {
     }
   };
 
+  console.log("-->",latitude,"-->",longitude);
   return (
       <Autocomplete
         className="location-selector"
