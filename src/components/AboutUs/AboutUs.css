@@ -1,30 +1,21 @@
 
 .abt-title{
     display: flex;
-    /* height: 50vh;     */
     width: 95%;
-    /* justify-content: space-between; */
     margin: 0 auto;
-    /* border: 1px solid red; */
 }
 .abt-item-1{
     width: 60%;
     margin-top: 2.7rem;
-    /* border: 1px solid red; */
 }
 .abt-item-2{
     width: 40%;
-    /* border: 1px solid red; */
 }
 .abt-hover{
     font-weight: 800;
     font-size: 2.3rem;
     text-decoration: none;  
-    /* margin-top: 1rem; */
-    /* margin-left: 0.6rem; */
     color: #F99417;
-    /* border: 1px solid #F99417; */
-    /* transition: color 0.2s cubic-bezier(0.550,0.085,0.680,0.530) ; */
     
 }
 .abt-hover::before,
@@ -57,12 +48,8 @@
     width: 60%;
 }
 .abt-img{
-    /* margin-top: 1rem; */
     width: 100%;
     object-fit: cover;
-}
-.abt-block{
-    /* width: 30%; */
 }
 
 @media(min-width:320px){
