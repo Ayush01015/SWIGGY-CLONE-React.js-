@@ -50,9 +50,6 @@ const Body = () => {
 
   // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
   return (
-  // allRestaurants?.length === 0 ? (
-  //   <ShimmerUI />
-  // ) : (
     <>
       <div className="body-header">
         <Search

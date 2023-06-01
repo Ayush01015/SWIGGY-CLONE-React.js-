@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
+import AboutUs from "./components/AboutUs/AboutUs";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact";
 // import Instamart from "./components/Instamart";

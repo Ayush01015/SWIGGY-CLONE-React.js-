@@ -29,7 +29,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "react-transition-group": "^4.4.5",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
