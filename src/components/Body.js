@@ -49,9 +49,10 @@ const Body = () => {
   if (!allRestaurants) return <h1>No Restaurants Founds</h1>; //early return
 
   // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
-  return allRestaurants?.length === 0 ? (
-    <ShimmerUI />
-  ) : (
+  return (
+  // allRestaurants?.length === 0 ? (
+  //   <ShimmerUI />
+  // ) : (
     <>
       <div className="body-header">
         <Search
@@ -69,7 +70,11 @@ const Body = () => {
       </div>
       <Banner/>
       <div className="body">
-        {filteredRestaurants.length === 0 ? (
+      {
+        allRestaurants.length === 0 
+        ? <ShimmerUI/>
+        :
+        filteredRestaurants.length === 0 ? (
           <h1>No Restaurant Found</h1>
         ) : (
           filteredRestaurants.map((restaurant) => {
@@ -82,7 +87,8 @@ const Body = () => {
               </Link>
             );
           })
-        )}
+        )
+      }
       </div>
     </>
   );

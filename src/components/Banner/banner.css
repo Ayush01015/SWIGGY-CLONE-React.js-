@@ -13,7 +13,17 @@
     border-radius: 12px;
     border: 1px solid gainsboro;
     width: 45%;
-    margin: 0.7em 0em;
+    margin: 0.7em 0em;    
+    transition: width 0.5s ease, height 0.5s ease;
+    transition: transform 0.5s ease;
+
+}
+.banner-item:hover{
+    /* width: 44%; */
+    /* height: 50%; */
+    /* border: 4px solid red; */
+    transform: scale(1.06);
+
 }
 .banner-item > img{
     width: 100%;
@@ -33,6 +43,7 @@
     font-size: 0.8rem;
     font-weight: 400;
 }
+
 
 @media(min-width:475px){
     .banner-component{
