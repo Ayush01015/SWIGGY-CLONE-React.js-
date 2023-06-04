@@ -37,7 +37,8 @@ const SwiGker = () => {
   return (
     <UserContext.Provider
     value={{
-      user:user
+      darkMode,
+      toggleDarkMode
     }}
     >
       <Header />

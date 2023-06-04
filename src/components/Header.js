@@ -4,6 +4,7 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 const Header = () => {
   const [log, setLog] = useState(true);
+  const [darkMode,setDarkMode] = useState(false);
   return (
     <div
       className="header"    >
