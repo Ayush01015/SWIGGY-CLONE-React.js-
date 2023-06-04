@@ -1,17 +1,18 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense,useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs/AboutUs";
 import ErrorPage from "./components/ErrorPage";
-import Contact from "./components/Contact";
+import Contact from "./components/Contact/Contact.js";
 // import Instamart from "./components/Instamart";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Deals from "./components/Deals";
 import RestaurantsMenu from "./components/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
+import UserContext from "./Utils/userContext";
 
 
 /*
@@ -26,13 +27,24 @@ dynamic import
 const Instamart = lazy(() => import("./components/Instamart.js")); //it's a promise(js)
 
 const SwiGker = () => {
+  const DarkModeProvider = ({ children }) => {
+    const [darkMode, setDarkMode] = useState(false);
+    const toggleDarkMode = () => {
+      setDarkMode(prevDarkMode => !prevDarkMode);
+    }
+  };
+  
   return (
-    <>
+    <UserContext.Provider
+    value={{
+      user:user
+    }}
+    >
       <Header />
       {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
         <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
   );
 };
 

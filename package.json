@@ -25,6 +25,7 @@
     "@parcel/transformer-js": "^2.8.3",
     "axios": "^1.4.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "formik": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 const Header = () => {
   const [log, setLog] = useState(true);
   return (
@@ -29,6 +30,7 @@ const Header = () => {
         <li className="li-item">
           <Link to="/instamart">Instamart</Link>
         </li>
+
         <li className="li-item">
           {log === true ? (
             <button className="log-btn" onClick={() => setLog(false)}>
