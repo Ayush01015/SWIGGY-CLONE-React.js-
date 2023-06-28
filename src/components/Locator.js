@@ -73,31 +73,8 @@ const locations = [
   },
 ];
 
-const Locator = ({ latitude, longitude, setLatitude, setLongitude }) => {
+const Locator = ({ latitude, longitude, setLatitude, setLongitude, setLoc }) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
-
-  
-  //   async function getRestaurantsByLocation(){
-    //   const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`)
-    //   const json = await data.json();
-    
-    // }
-    
-    // useEffect(()=>{
-      //   getRestaurantsByLocation();
-  // },[latitude,longitude])
-
-//   async function openAPI(){
-//     console.log(`${API_END_POINT}&lat=${latitude}&lon=${longitude}&exclude=hourly,daily&appid=${API_KEY}`)
-//     const data = await fetch(`${API_END_POINT}&lat=${33.44}&lon=${94.04}&exclude=hourly,daily&appid=${API_KEY}`
-//         );
-//     const json = await data.json();
-//     console.log("0000",json)
-//   }
-
-//   useEffect(()=>{
-//     openAPI();
-//   },[])
 
   const handleLocationChange = (event, value) => {
     if (value !== null) {
@@ -105,6 +82,7 @@ const Locator = ({ latitude, longitude, setLatitude, setLongitude }) => {
       setSelectedLocation(value);
       setLatitude(latitude);
       setLongitude(longitude);
+      setLoc(value.label);
     }
   };
 
@@ -126,5 +104,5 @@ const Locator = ({ latitude, longitude, setLatitude, setLongitude }) => {
       />
   );
 };
-
+ 
 export default Locator;

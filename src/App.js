@@ -12,7 +12,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Deals from "./components/Deals";
 import RestaurantsMenu from "./components/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
-import UserContext from "./Utils/userContext";
+
 
 
 /*
@@ -35,17 +35,12 @@ const SwiGker = () => {
   };
   
   return (
-    <UserContext.Provider
-    value={{
-      darkMode,
-      toggleDarkMode
-    }}
-    >
+    <>
       <Header />
       {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
         <Outlet />
       <Footer />
-    </UserContext.Provider>
+    </>
   );
 };
 
