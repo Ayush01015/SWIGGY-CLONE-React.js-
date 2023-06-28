@@ -17,7 +17,8 @@ const RestaurantsMenu = () => {
     <ShimmerMenu />
   ) : (
     <div className="restraunt-menu">
-      <div className="menu-header">
+      <div className="menu-header"
+      >
         <div className="menu-header-img menu-header-mg">
           <img
             src={
@@ -62,14 +63,16 @@ const RestaurantsMenu = () => {
       <div className="menu">
         <span className="menu-span">Menu</span>
         {/* {console.log("menu",restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)} */}
-        <div className="menu-sub">
+        <div className="menu-sub"
+        >
           {restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
             ?.card?.card?.itemCards &&
             Object.values(
               restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
                 ?.card?.card?.itemCards
             ).map((item) => (
-              <div className="menu-sub-2" key={item.card.info.id}>
+              <div className="menu-sub-2" key={item.card.info.id}
+              >
                 {/* {console.log("items", item.card.info)} */}
                 <div className="menu-item-con">
                   <div className="menu-item-con-data">

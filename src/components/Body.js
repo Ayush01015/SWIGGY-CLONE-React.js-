@@ -17,8 +17,24 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
   const [latitude, setLatitude] = useState(28.696701100186587);
   const [longitude, setLongitude] = useState(77.22774819099834);
+  const [loc,setLoc] = useState("Delhi");
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const typingSpeed = 70; // Adjust the typing speed (in milliseconds)
+  const fullText = `Feast on Exquisite Cuisine`; // The text you want to display with the typing effect
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (index < fullText.length) {
+        setText((prevText) => prevText + fullText.charAt(index));
+        setIndex((prevIndex) => prevIndex + 1);
+      }
+    }, typingSpeed);
 
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [index, fullText]);
 
   async function getRestaurants() {
     //fetching data fromm API
@@ -44,7 +60,7 @@ const Body = () => {
 
 
   const isOnline = useOnline();
-  if (!isOnline) return <h1>Check your Internet Connection...</h1>;
+  if (!isOnline) return <h1>Check Your Internet Connection</h1>;
 
   if (!allRestaurants) return <h1>No Restaurants Founds</h1>; //early return
 
@@ -63,9 +79,14 @@ const Body = () => {
           setLatitude={setLatitude}
           longitude={longitude}
           setLongitude={setLongitude}
+          setLoc={setLoc}
         />
       </div>
       <Banner/>
+      <div className="catch-phrase text-gradient tx-center">
+        <h1 className="res-location">Restaurants in {loc}</h1>
+        <h1 className="typing-effect">{text}</h1>
+      </div>
       <div className="body">
       {
         allRestaurants.length === 0 

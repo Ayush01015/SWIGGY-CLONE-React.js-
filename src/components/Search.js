@@ -1,4 +1,3 @@
-import { useScrollTrigger, useStepContext } from "@mui/material";
 import { filterData } from "../Utils/Utils";
 import { useEffect, useState } from "react";
 const Search = ({searchInput,setSearchInput,setfilteredRestaurants,allRestaurants}) =>{
