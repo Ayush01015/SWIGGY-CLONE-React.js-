@@ -1,7 +1,5 @@
 import React, {useContext} from 'react'
 import "./contact.css"
-import { Formik } from 'formik';
-import UserContext from '../../Utils/userContext';
 
 const Contact = () => {
 
