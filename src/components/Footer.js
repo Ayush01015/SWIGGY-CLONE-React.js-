@@ -5,21 +5,21 @@ const Footer = () => {
     <div
       style={{
         backgroundColor: "black",
-        height: "10vh",
         color: "white",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        // border:"1px solid red",
-        
-        
-        
+        position:"fixed",
+        bottom:"0",
+        zIndex:"9999",
+        width:"100%",
+
       }}
     >
       <div
         style={{
-          fontSize: "1.3rem",
-          padding: "10px",
+          fontSize: "1rem",
+          padding: "20px 5px",
           width:"25rem",
           height:"5vh",
           display:"flex",
@@ -32,14 +32,12 @@ const Footer = () => {
       </div>
       <button
         style={{
-          marginLeft: "40px",
           cursor: "pointer",
-          width: "90px",
-          padding: "3px",
+          padding: "2px 20px",
           border: "none",
           backgroundColor: "#8BF5FA",
           borderRadius: "4px",
-          fontSize:"1rem"
+          fontSize:"0.8rem",
         }}
         onClick={() => {
           name === "Copy Right 2023 swiGker"

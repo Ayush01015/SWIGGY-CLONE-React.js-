@@ -1,12 +1,12 @@
 
 .cont-heading{
-    text-align: center;
-    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
 }
 
 .contact-page{
     background: rgb(255,192,0);
     height: 100vh;
-    /* margin:  2rem 10rem 2rem 10rem; */
-    /* border-radius: 15px; */
 }

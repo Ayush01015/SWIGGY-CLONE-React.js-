@@ -2,9 +2,15 @@ import React from 'react'
 
 const Instamart = () => {
   return (
-    <div>
-      <h1>Instamart</h1>
-      <h1>100's of Components</h1>
+    <div
+    style={{
+      marginTop:"6rem",
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center",
+    }}
+    >
+      <h1>Unveiling a World of Excitement, Coming Soon!!!!</h1>
     </div>
   )
 }

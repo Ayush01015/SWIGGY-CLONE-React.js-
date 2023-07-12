@@ -5,10 +5,10 @@ const ShimmerCard = ()=>{
     return(
         <Stack className="card-component" spacing={1}>
         <div className="card">
-          <Skeleton variant="rectangular" width={270} height={184} />
+          <Skeleton variant="rectangular" width={245} height={184} />
           <div className="card-items">
-            <Skeleton variant="rectangular" width={250} height={60} />
-            <Skeleton variant="rectangular" width={250} height={30} />
+            <Skeleton variant="rectangular" width={220} height={60} />
+            <Skeleton variant="rectangular" width={220} height={30} />
             <Skeleton variant="rectangular" width={100} height={19.2} />
             <div className="card-rating">
               <Skeleton variant="rectangular" width={86} height={16} />

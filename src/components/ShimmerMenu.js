@@ -7,7 +7,7 @@ const ShimmerMenu = () => {
       <div className="shimmer-menu-header">
         <div className="shimmer-menu">
           <Stack spacing={1}>
-            <Skeleton variant="rectangular" width={1519} height={245} />
+            <Skeleton variant="rectangular" width="fullWidthSkeleton" height={245} />
             <div
               style={{
                 display: "flex",

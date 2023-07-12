@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 
 const locations = [
   {
-    label: "Delhi (Default)",
+    label: "Delhi",
     coordiantes: {
       latitude: "28.696701100186587",
       longitude: "77.22774819099834",
@@ -86,7 +86,7 @@ const Locator = ({ latitude, longitude, setLatitude, setLongitude, setLoc }) => 
     }
   };
 
-  console.log("-->",latitude,"-->",longitude);
+  // console.log("-->",latitude,"-->",longitude);
   return (
       <Autocomplete
         className="location-selector"

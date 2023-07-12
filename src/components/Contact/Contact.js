@@ -6,7 +6,9 @@ const Contact = () => {
   
   return (
     <>
-      <h1>Contact</h1>
+      <h1 className='cont-heading'>
+      Unveiling a World of Excitement, Coming Soon!!
+      </h1>
     </>
   )
 }

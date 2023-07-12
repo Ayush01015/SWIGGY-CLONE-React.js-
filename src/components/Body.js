@@ -8,7 +8,7 @@ import { filterData } from "../Utils/Utils";
 import useOnline from "../Utils/useOnline";
 import Search from "./Search";
 import Locator from "./Locator";
-import getCoordinates  from "../Utils/getCoordinates";
+// import getCoordinates  from "../Utils/getCoordinates";
 import Banner from "./Banner/Banner";
 
 const Body = () => {
@@ -42,7 +42,7 @@ const Body = () => {
       `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
-    console.log("Json: ", json);
+    // console.log("Json: ", json);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in restaurants
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in filtered restaurants for search.
   }
@@ -67,7 +67,8 @@ const Body = () => {
   // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
   return (
     <>
-      <div className="body-header">
+      <div className="body-header"
+      >
         <Search
           searchInput={searchInput}
           setSearchInput={setSearchInput}

@@ -10,7 +10,7 @@ import Contact from "./components/Contact/Contact.js";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Deals from "./components/Deals";
-import RestaurantsMenu from "./components/RestaurantsMenu";
+import RestaurantsMenu from "./components/RestaurantsMenu/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
 
 
