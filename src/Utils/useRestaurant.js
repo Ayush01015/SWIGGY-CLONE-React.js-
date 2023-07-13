@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react";
-import { SWIGGY_MENU_API } from "../constants"
 import { SWIGGY_MENU_API_2 } from "../constants"
 
 const useRestaurants = (id) => {
@@ -12,10 +11,10 @@ const useRestaurants = (id) => {
 
     async function getRestaurantsMenu() {
       const data = await fetch(SWIGGY_MENU_API_2+id);
-      // console.log("--------->",SWIGGY_MENU_API_2+id+"&submitAction=ENTER");
+      console.log("--------->",SWIGGY_MENU_API_2+id+"&submitAction=ENTER");
       const json = await data.json();
       setRestaurant(json.data);
-      // console.log("json ka dta",json.data);
+      console.log("json ka dta",json.data);
       
     }
 

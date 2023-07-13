@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 a {
-  all: unset;
+  all: unset; 
 }
 body {
   background-color: white; 

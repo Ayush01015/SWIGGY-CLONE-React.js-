@@ -15,7 +15,6 @@
   width: 80%;
   padding: 0.5em;
   max-width: 300px;
-  /* border: 1px solid red; */
   min-width: 230px;
 }
 .menu-header-img > img {
@@ -40,7 +39,6 @@
 }
 .sub-menu-item {
   margin-right: 1rem;
-  font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +52,6 @@
   font-family: "Montserrat", sans-serif;
   overflow-y: scroll;
   z-index: -2;
-  /* border: 1px solid red; */
 }
 .menu-heading {
   width: 100%;
@@ -65,30 +62,22 @@
   position: fixed;
   z-index: -1;
   background-color: white;
-  /* border: 1px solid red; */
 }
 .menu-sub {
-  /* width: 100%; */
   margin-top: 15rem;
-  /* border: 1px solid red; */
   z-index: -2 ;
 }
-.menu-sub-2{
-}
+
 .menu-item-con {
   display: flex;
   flex-direction: row;
   padding: 1rem 0.5rem;
   border: 1px solid #d5d5d5;
   max-width: 650px;
-  /* width: 100%; */
   height: 150px;
   margin: 20px 0px;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid red; */
-
-
 }
 
 .menu-item-con-img {
@@ -103,8 +92,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   width: 68%;
-  /* border: 1px solid green; */
-  /* padding: 12em 0em; */
 }
 .menu-item-con-data p{
     margin-bottom: 0.5em;
@@ -120,38 +107,44 @@
     font-size: 1.2rem;
     font-weight: 600;
 }
-
+.header-info{
+  margin-left: -3rem;
+}
+.menu-head{
+  display: flex;
+  
+}
+.restraunt-not-found{
+  margin-top: 3rem;
+  text-align: center;
+}
 @media (min-width: 200px) {
   .menu-header {
     display: flex;
     flex-direction: column;
     padding: 0.5em;
     z-index: -1;
-    /* border: 1px solid green; */
   }
   .menu-heading{
-    top: 594;
+    top: 265;
   }
   .menu-header-img {
     width: 100%;
     min-width: 140px;
   }
   .menu-header-img > img {
-    width: 100%;
+    width: 50%;
   }
   .menu-head-content {
     padding: 0.5em;
   }
   .res-menu-itm {
-    font-size: 1.1rem;
+    font-size: 0.6rem;
     margin-bottom: 0.1em;
   }
   .res-name {
-    font-size: 2.5rem;
+    font-size: 0.8rem;
     font-weight: 600;
-  }
-  .menu-sub{
-    margin-top: 30rem;
   }
   .menu-item-con-data:last-child{
     font-size: 5rem;
@@ -159,81 +152,112 @@
   .menu-item{
     font-size: 0.7rem;
   }
+  .menu-footer > span{
+    font-size: 0.8rem;
+  }
+  .menu-sub{
+    margin-top: 11rem;
+  }
+  .menu-header-img{
+    width: 10%;
+  }
+  .menu-header-img > img{
+    width: 70%;
+  }
+  .menu-sub-2{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
 }
-@media (min-width: 209px) {
-    .menu-heading{
-        top: 500;
-    }
-    .menu-sub{
-        margin-top: 26rem;
-    }
-}
-@media (min-width: 258px) {
-    .menu-heading{
-        top: 572;
-    }
-    .menu-sub{
-        margin-top: 31rem;
-    }
-    .menu-item{
-      font-size: 1rem;
-    }
-}
+
 @media (min-width: 318px) {
     .menu-heading{
-        top: 578;
+        top: 230;
     }
     .menu-item{
         font-size: 1rem;
     }
     .menu-sub{
-        margin-top: 31rem;
-      }
+      margin-top: 10rem;
+    }
+    .res-name{
+      font-size: 1rem;
+    }
+    .menu-header-img{
+      width: 10%;
+    }
+    .menu-header-img > img{
+      width: 100%;
+    }
+    .header-info{
+      margin-left: 0.5rem;
+    }
+
 }
 @media (min-width: 378px) {
   .menu-heading{
-    top: 558;
+    top: 215;
   }
   .menu-sub{
-      margin-top: 30rem;
+      margin-top: 9rem;
   }
-}
-@media (min-width: 430px) {
-    .menu-heading{
-        top: 508;
-    }
-    .menu-sub{
-        margin-top: 24rem;
-    }
-}
-@media (min-width: 627px) {
-    .menu-heading{
-        top: 458;
-    }
-    .menu-sub{
-        margin-top: 24rem;
-    }
-    .menu-item{
-        font-size: 1.2rem;
-    }
 }
 
 @media (min-width: 768px) {
   .menu-header{
-      flex-direction: row;
+      flex-direction: column;
   }
   .menu-heading{
-    top: 310;
+    top: 319;
+  }
+  .res-menu-itm{
+    font-size: 1rem;
+  }
+  .res-name{
+    font-size: 1.9rem;
+  }
+  .menu-footer > span{
+    font-size: 1.1rem;
+  }
+  .menu-header-img{
+    width: 40%;
+  }
+  .menu-header-img > img{
+    width: 100%;
+  }
+  .menu-sub{
+    margin-top: 13rem;
 }
-.menu-sub{
-  margin-top: 15rem;
+.restraunt-not-found{
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 2.2rem;
 }
+
+}
+@media (min-width: 800px) {
+  .menu-heading{
+    top: 309;
+  }
+
+  .menu-sub{
+    margin-top: 15rem;
+  }
 }
 @media (min-width: 927px) {
   .menu-heading{
-    top: 295;
+    top: 320;
 }
   .menu-sub{
     margin-top: 15rem;
+  }
+  .res-menu-itm{
+    font-size: 1rem;
+  }
+  .res-name{
+    font-size: 2.3rem;
+  }
+  .menu-footer > span{
+    font-size: 1.1rem;
   }
 }
