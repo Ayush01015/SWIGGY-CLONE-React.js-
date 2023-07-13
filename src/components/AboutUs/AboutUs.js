@@ -4,11 +4,11 @@ import img from "../../assets/img/about-page.jpg";
 import logo from "../../assets/img/abt-logo.png"
 const AboutUs = () => {
   return (
-    <>
+    <div className="about">
       <div className="abt-title">
         <div className="abt-item-1">
           <a className="abt-hover" data-letter="About Us">
-            About Us
+            About <span className="underline"><span className="primary-color">U</span>s</span>
           </a>
         </div>
         <div className="abt-item-2">
@@ -72,7 +72,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

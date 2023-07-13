@@ -1,5 +1,6 @@
-import { filterData } from "../Utils/Utils";
+import { filterData } from "../../Utils/Utils";
 import { useEffect, useState } from "react";
+import "./Search.css"
 const Search = ({searchInput,setSearchInput,setfilteredRestaurants,allRestaurants}) =>{
     return(
         <div className="search-component">

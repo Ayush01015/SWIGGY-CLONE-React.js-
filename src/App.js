@@ -1,6 +1,6 @@
 import React, { lazy, Suspense,useState } from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
+import Header from "./components/Header/Header.js";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs/AboutUs";
@@ -39,7 +39,7 @@ const SwiGker = () => {
       <Header />
       {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
         <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

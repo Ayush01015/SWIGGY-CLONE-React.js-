@@ -6,8 +6,8 @@ import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import { filterData } from "../Utils/Utils";
 import useOnline from "../Utils/useOnline";
-import Search from "./Search";
-import Locator from "./Locator";
+import Search from "./Search/Search";
+import Locator from "./Locator/Locator";
 // import getCoordinates  from "../Utils/getCoordinates";
 import Banner from "./Banner/Banner";
 
@@ -66,7 +66,7 @@ const Body = () => {
 
   // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
   return (
-    <>
+    <div>
       <div className="body-header"
       >
         <Search
@@ -76,6 +76,7 @@ const Body = () => {
           allRestaurants={allRestaurants}
         />
           <Locator
+          className="location"
           latitude={latitude}
           setLatitude={setLatitude}
           longitude={longitude}
@@ -84,6 +85,7 @@ const Body = () => {
         />
       </div>
       <Banner/>
+      
       <div className="catch-phrase text-gradient tx-center">
         <h1 className="res-location">Restaurants in {loc}</h1>
         <h1 className="typing-effect">{text}</h1>
@@ -103,13 +105,14 @@ const Body = () => {
                 key={restaurant?.data?.id}
               >
                 <Card {...restaurant.data} />
+                {console.log(restaurant.data)}
               </Link>
             );
           })
         )
       }
       </div>
-    </>
+    </div>
   );
 };
 

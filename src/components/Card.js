@@ -1,6 +1,6 @@
 import {IMG_CDN_URL} from "../constants"
-
-const Card = ({ name, cloudinaryImageId ,address, totalRatingsString, deliveryTime, area, cuisines }) => {
+import StarIcon from '@mui/icons-material/Star';
+const Card = ({ name,costForTwoString, cloudinaryImageId ,address, totalRatingsString, deliveryTime, area, cuisines, avgRating }) => {
     return (
       <div className="card-component">
         <div className="card">
@@ -23,9 +23,10 @@ const Card = ({ name, cloudinaryImageId ,address, totalRatingsString, deliveryTi
             {/* <p>{address}</p> */}
             <span id="cuisines">{cuisines?.join(", ")}</span>
             <p>{area}</p>
-            <div className="card-rating">
-              <h5>{totalRatingsString}</h5>
-              <h5>{deliveryTime} MINS</h5>
+            <div className="card-footer">
+              <div className="card-rating">{avgRating==="--"?"1.0":avgRating}<StarIcon fontSize="small"/></div>
+              <span>{deliveryTime} MINS</span>
+              <span>{costForTwoString}</span>
             </div>
           </div>
         </div>

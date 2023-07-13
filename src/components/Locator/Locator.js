@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Paper from '@mui/material/Paper';
+import "./Locator.css";
 // import Listbox from '@mui/material/Listbox';
 
 // const API_END_POINT = `https://api.openweathermap.org/data/2.5/onecall?`;
