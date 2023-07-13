@@ -20,6 +20,7 @@ const Header = () => {
           fontSize: "2rem",
           color: "white",
           marginTop: "4px",
+          
         }}
       >
         <Link to="/">

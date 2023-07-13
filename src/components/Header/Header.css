@@ -1,41 +1,41 @@
-html{
-    overflow-x:hidden;
-    /* border:1px solid forestgreen; */
+html {
+  overflow-x: hidden;
+  /* border:1px solid forestgreen; */
 }
-body{
-    overflow-x:hidden;
-    /* border:1px solid red */
+body {
+  overflow-x: hidden;
+  /* border:1px solid red */
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 0.5rem;
-    height: 4rem;
-    width: 100%;
-    background-color: black;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  padding: 0rem 1rem;
 }
 
 .navbar-list {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    text-transform: uppercase;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  text-transform: uppercase;
 }
-.navbar-link{
-    cursor: pointer;
+.navbar-link {
+  cursor: pointer;
 }
 .navbar-link:link,
 .navbar-link:visited {
   display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 1.rem;
+  font-size: 1rem;
   font-weight: 600;
   /* color: black; */
   /* color: white; */
@@ -43,126 +43,109 @@ body{
 }
 .navbar-link:hover,
 .navbar-link:active {
-    color: #f99417;
-    text-decoration: underline;
+  color: #f99417;
+  text-decoration: underline;
 }
 .mobile-navbar-btn {
-    display: none;
-    background: transparent;
-    cursor: pointer;
-  }
-  
-  .icon-wrapper-close {
-    display: none;
-  }
-  
+  display: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.icon-wrapper-close {
+  display: none;
+}
+
 /* ==================
     Responsive Code 
 =====================*/
 
-@media(max-width:980px){
-    .mobile-navbar-btn{
-        display: block;
-        z-index: 999;
-        border: 2px solid #f99417;
-        
+@media (max-width: 980px) {
+  /* body{
+        overflow-x: hidden;
     }
-    .header{
-        /* position: relative; */
-    }
-    .navbar{
-        /* display: none; */
-        width: 100%;
-        height: 100vh;
-        background-color: orange;
-        position: absolute;  
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* color: black; */
-        transform: translateX(100%);
-        transition: all 0.5s linear;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        z-index: 999;
-        /* position: sticky; */
-    }
-    .navbar-link{
-        /* color: black;    */
-        /* border: 1px solid red; */
-        color: black;
-        /* color: #000; */
-    }
-    .navbar-list > li{
-    }
-    .navbar-list{
-        flex-direction: column;
-        align-items: center;
-        /* color: black; */
-    }
+    html{
+        overflow-x: hidden;
+    } */
+  .mobile-navbar-btn {
+    display: block;
+    z-index: 999;
+    border: 2px solid #f99417;
+  }
+  .header {
+    /* position: relative; */
+  }
+  .navbar {
+    /* display: none; */
+    width: 100%;
+    height: 100vh;
+    background-color: orange;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: black; */
+    transform: translateX(100%);
+    transition: all 0.5s linear;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 999;
+    /* overflow: hidden; */
+    /* overflow-x: hidden; */
+    /* position: sticky; */
+  }
+  .navbar-link {
+    /* color: black;    */
+    /* border: 1px solid red; */
+    color: black;
+    /* color: #000; */
+  }
+  .navbar-list > li {
+  }
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+    /* color: black; */
+  }
 
-    .navbar-link:link,
-    .navbar-link:visited {
+  .navbar-link:link,
+  .navbar-link:visited {
     font-size: 1.5rem;
     font-weight: 600;
     color: white;
-    }
-
-}
-
-.active .navbar{
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.active 
-.mobile-navbar-btn 
-.icon-wrapper-menu{
-    display: none;
-
-}
-.active 
-.mobile-navbar-btn 
-.icon-wrapper-close{
-    display: block;
-}
-
-/* ==================
-        old css 
-=====================*/
-
-
-
-
-
-
-  
-  .log-btn {
-    font-size: 1rem;
-    padding: 5px 25px 5px 25px;
-    font-family: "Montserrat", sans-serif;
-    background-color: #f99417;
-    color: #000;
-    font-weight: bold;
-    border-radius: 3px;
-    cursor: pointer;
   }
-  
+}
 
-  .logger {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-/*
-    ==================
-        Locator CSS 
-    ==================
-*/
+.active .navbar {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 
+.active .mobile-navbar-btn .icon-wrapper-menu {
+  display: none;
+}
+.active .mobile-navbar-btn .icon-wrapper-close {
+  display: block;
+}
+
+.log-btn {
+  font-size: 1rem;
+  padding: 5px 25px 5px 25px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f99417;
+  color: #000;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.logger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
