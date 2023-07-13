@@ -8,8 +8,8 @@
   width: 100%;
   padding: 1rem;
   position: fixed;
-  top: 85;
-  z-index: 9999;
+  top: 80;
+  z-index: 2;
 }
 .menu-header-img {
   width: 80%;
@@ -53,6 +53,8 @@
   align-items: center;
   font-family: "Montserrat", sans-serif;
   overflow-y: scroll;
+  z-index: -2;
+  /* border: 1px solid red; */
 }
 .menu-heading {
   width: 100%;
@@ -60,17 +62,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   position: fixed;
-  top: 300;
-  z-index: 9999;
-  /* border-bottom: 1px solid black; */
-  /* padding: 1rem 0rem; */
+  z-index: -1;
+  background-color: white;
+  /* border: 1px solid red; */
 }
 .menu-sub {
   /* width: 100%; */
   margin-top: 15rem;
   /* border: 1px solid red; */
+  z-index: -2 ;
 }
 .menu-sub-2{
 }
@@ -125,6 +126,7 @@
     display: flex;
     flex-direction: column;
     padding: 0.5em;
+    z-index: -1;
     /* border: 1px solid green; */
   }
   .menu-heading{
@@ -229,7 +231,7 @@
 }
 @media (min-width: 927px) {
   .menu-heading{
-    top: 300;
+    top: 295;
 }
   .menu-sub{
     margin-top: 15rem;

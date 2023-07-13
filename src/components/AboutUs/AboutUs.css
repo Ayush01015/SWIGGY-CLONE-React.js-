@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     /* gap: 43.4rem; */
-    /* margin-left: 10rem; */
+    margin-top: 4rem;
 }
 .abt-item-1{
     /* width: 60%; */
@@ -60,6 +60,7 @@
     /* remove later on header updation */
     /* top: 0; */
     margin-bottom: 5rem;
+    z-index: -1;
 }
 .container{
     /* border: 1px solid black; */

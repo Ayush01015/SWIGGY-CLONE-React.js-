@@ -77,10 +77,10 @@ const Header = () => {
       <div className="mobile-navbar-btn"
       onClick={toggleNavbar}
       >
-        <div class="icon-wrapper-menu">
+        <div className="icon-wrapper-menu">
           <MenuIcon fontSize="large" className="mobile-nav-icon" />
         </div>
-        <div class="icon-wrapper-close">
+        <div className="icon-wrapper-close">
           <CloseIcon fontSize="large" className="mobile-nav-icon-close" />
         </div>
       </div>

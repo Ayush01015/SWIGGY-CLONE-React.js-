@@ -11,8 +11,8 @@ const ShimmerCard = ()=>{
             <Skeleton variant="rectangular" width={220} height={30} />
             <Skeleton variant="rectangular" width={100} height={19.2} />
             <div className="card-rating">
-              <Skeleton variant="rectangular" width={86} height={16} />
-              <Skeleton variant="rectangular" width={56} height={16} />
+              {/* <Skeleton variant="rectangular" width={86} height={16} /> */}
+              {/* <Skeleton variant="rectangular" width={56} height={16} /> */}
             </div>
           </div>
         </div>

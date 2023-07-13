@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { SWIGGY_MENU_API } from "../../constants";
 import { IMG_CDN_URL } from "../../constants";
 import ShimmerMenu from "../ShimmerMenu";
 import useRestaurants from "../../Utils/useRestaurant";

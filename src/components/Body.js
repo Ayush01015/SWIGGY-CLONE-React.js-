@@ -1,6 +1,5 @@
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
-
 import { SWIGGY_PUBLIC_API } from "../constants";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -8,10 +7,10 @@ import { filterData } from "../Utils/Utils";
 import useOnline from "../Utils/useOnline";
 import Search from "./Search/Search";
 import Locator from "./Locator/Locator";
-// import getCoordinates  from "../Utils/getCoordinates";
 import Banner from "./Banner/Banner";
 
 const Body = () => {
+
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
@@ -42,7 +41,7 @@ const Body = () => {
       `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
-    // console.log("Json: ", json);
+    console.log("Json: ", json);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in restaurants
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in filtered restaurants for search.
   }
@@ -76,7 +75,6 @@ const Body = () => {
           allRestaurants={allRestaurants}
         />
           <Locator
-          className="location"
           latitude={latitude}
           setLatitude={setLatitude}
           longitude={longitude}
@@ -105,7 +103,7 @@ const Body = () => {
                 key={restaurant?.data?.id}
               >
                 <Card {...restaurant.data} />
-                {console.log(restaurant.data)}
+                {/* {console.log("DATA: ",restaurant.data)} */}
               </Link>
             );
           })

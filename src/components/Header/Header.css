@@ -18,6 +18,8 @@ body {
   font-family: "Montserrat", sans-serif;
   color: white;
   padding: 0rem 1rem;
+  position: fixed;
+  top: 0;
 }
 
 .navbar-list {
@@ -93,6 +95,7 @@ body {
     visibility: hidden;
     pointer-events: none;
     z-index: 999;
+
     /* overflow: hidden; */
     /* overflow-x: hidden; */
     /* position: sticky; */
@@ -132,6 +135,9 @@ body {
 .active .mobile-navbar-btn .icon-wrapper-close {
   display: block;
 }
+
+
+
 
 .log-btn {
   font-size: 1rem;
