@@ -42,10 +42,11 @@ const Body = () => {
     );
     const json = await data.json();
     console.log("Json: ", json);
+    // console.log("Json: ", json?.data?.cards[1]?.data?.data?.cards);
+    // console.log("Json: ", json?.data?.cards[2]?.data?.data?.cards);
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in restaurants
     setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in filtered restaurants for search.
   }
-
 
   useEffect(() => {
     getRestaurants();
@@ -61,7 +62,14 @@ const Body = () => {
   const isOnline = useOnline();
   if (!isOnline) return <h1>Check Your Internet Connection</h1>;
 
-  if (!allRestaurants) return <h1>No Restaurants Founds</h1>; //early return
+  if (!allRestaurants) return <h1
+          style={{
+            display:"flex",
+            justifyContent:"center",
+            alignItems:"center",
+            marginTop:"10rem",
+          }}
+  >No Restaurants Founds Please Try Again, Later</h1>; //early return
 
   // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
   return (
