@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./contact.css";
-
+import Phone from "../../assets/img/1.png"
+import Location from "../../assets/img/2.png"
+import Email from "../../assets/img/3.png"
+import Background from "../../assets/img/4.png"
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -63,8 +66,46 @@ const Contact = () => {
   return (
     <div>
       <div className="contact-container">
+      <span className="big-circle"></span>
+      <img src={Background} className="square" alt="" />
         <div className="contact-form-container">
-          <div className="contact-info"></div>
+          <div className="contact-info">
+          <h3 className="title">Let's get in touch</h3>
+          <p className="text">
+          Connect with us and let's explore together! Fill out the form below to get in touch. We look forward to hearing from you!
+          </p>
+          <div className="info">
+            <div className="information">
+              <img src={Location} className="icon" alt="" />
+              <p>13th Street Alpha II Greater Noida, Uttar Pradesh</p>
+            </div>
+            <div className="information">
+              <img src={Email} className="icon" alt="" />
+              <p>ayushshrivastav575@gmail.com</p>
+            </div>
+            <div className="information">
+              <img src={Phone} className="icon" alt="" />
+              <p>7895821944</p>
+            </div>
+          </div>
+          <div className="social-media">
+            <p>Connect with us :</p>
+            <div className="social-icons">
+              <a href="#">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/ayush575/" target="_blank">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          </div>
           <div className="contact-form">
             <span className="circle one"></span>
             <span className="circle two"></span>
