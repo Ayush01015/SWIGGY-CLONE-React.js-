@@ -64,7 +64,6 @@
   background-color: white;
 }
 .menu-sub {
-  margin-top: 15rem;
   z-index: -2 ;
 }
 
@@ -99,6 +98,8 @@
 .menu-span {
   font-size: 4rem;
   font-weight: 600;
+  z-index: -99;
+  margin-top: 12rem;
 }
 .shimmer-menu {
   align-items: center;
@@ -125,9 +126,7 @@
     padding: 0.5em;
     z-index: -1;
   }
-  .menu-heading{
-    top: 265;
-  }
+  
   .menu-header-img {
     width: 100%;
     min-width: 140px;
@@ -155,9 +154,6 @@
   .menu-footer > span{
     font-size: 0.8rem;
   }
-  .menu-sub{
-    margin-top: 11rem;
-  }
   .menu-header-img{
     width: 10%;
   }
@@ -168,17 +164,15 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
   }
+  .menu-span{
+    margin-top: 10rem;
+    font-size: 3rem;
+  }
 }
 
 @media (min-width: 318px) {
-    .menu-heading{
-        top: 230;
-    }
     .menu-item{
         font-size: 1rem;
-    }
-    .menu-sub{
-      margin-top: 10rem;
     }
     .res-name{
       font-size: 1rem;
@@ -192,6 +186,10 @@
     .header-info{
       margin-left: 0.5rem;
     }
+    .menu-span{
+      margin-top: 6rem;
+      font-size: 3.5rem;
+    }
 
 }
 @media (min-width: 378px) {
@@ -199,16 +197,17 @@
     top: 215;
   }
   .menu-sub{
-      margin-top: 9rem;
+      margin-top: 0rem;
+  }
+  .menu-span{
+    margin-top: 6rem;
+    font-size: 3.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .menu-header{
       flex-direction: column;
-  }
-  .menu-heading{
-    top: 319;
   }
   .res-menu-itm{
     font-size: 1rem;
@@ -226,8 +225,12 @@
     width: 100%;
   }
   .menu-sub{
-    margin-top: 13rem;
-}
+    margin-top: 0.2rem;
+  }
+  .menu-span{
+    margin-top: 9rem;
+    font-size: 3.5rem;
+  }
 .restraunt-not-found{
   margin-top: 3rem;
   text-align: center;
@@ -235,22 +238,18 @@
 }
 
 }
-@media (min-width: 800px) {
-  .menu-heading{
-    top: 309;
-  }
 
+@media (min-width: 837px) {
   .menu-sub{
-    margin-top: 15rem;
+    margin-top: 0.2rem;
+  }
+  .menu-span{
+    margin-top: 11rem;
+    font-size: 3.5rem;
   }
 }
-@media (min-width: 927px) {
-  .menu-heading{
-    top: 320;
-}
-  .menu-sub{
-    margin-top: 15rem;
-  }
+@media (min-width: 926px) {
+
   .res-menu-itm{
     font-size: 1rem;
   }
@@ -259,5 +258,22 @@
   }
   .menu-footer > span{
     font-size: 1.1rem;
+  }
+  .menu-sub{
+    margin-top: 0.2rem;
+  }
+  .menu-span{
+    margin-top: 11rem;
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .menu-sub{
+    margin-top: 0.5rem;
+  }
+  .menu-span{
+    margin-top: 12.5rem;
+    font-size: 3.5rem;
   }
 }

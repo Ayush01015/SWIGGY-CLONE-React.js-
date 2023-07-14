@@ -71,9 +71,9 @@ const RestaurantsMenu = () => {
         </div>
       </div>
       <div className="menu">
-      <div className="menu-heading">
+      {/* <div className="menu-heading"> */}
         <span className="menu-span">Menu</span>
-      </div>
+      {/* </div> */}
         {/* {console.log("menu",restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)} */}
         <div className="menu-sub"
         >
