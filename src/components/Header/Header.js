@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
+import UserContext from "../../Utils/UserContext";
 
 const Header = () => {
   const [log, setLog] = useState(true);
@@ -11,6 +12,10 @@ const Header = () => {
   const toggleNavbar = () => {
     setIsNavbarActive(!isNavbarActive);
   };
+
+  const {user} = useContext(UserContext);
+  
+  {console.log("user",user)}
 
   return (
     <header className={`header ${isNavbarActive ? "active" : ""}`}>

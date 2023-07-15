@@ -12,8 +12,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Deals from "./components/Deals";
 import RestaurantsMenu from "./components/RestaurantsMenu/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
-
-
+import { Provider } from "react-redux";
+import store from "./Utils/store.js";
 
 /*
 Chunking
@@ -35,12 +35,12 @@ const SwiGker = () => {
   };
   
   return (
-    <>
+    <Provider store={store}>
       <Header />
       {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
         <Outlet />
       {/* <Footer /> */}
-    </>
+    </Provider>
   );
 };
 
