@@ -49,7 +49,12 @@ const Cart = () => {
                return <CartItem {...item.card.info} key={item.card.info.id} id={idx}/>
               })}
               <div>
-                <p>{totalPrice}</p>
+                <p
+                style={{
+                  margin:"1rem 0",
+                  fontSize:"1.5rem",
+                }}
+                >TOTAL:  ₹{totalPrice/100}</p>
               </div>
               <div>
                 <button className="cart-btn">Pay</button>
