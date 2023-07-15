@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../../constants";
 import ShimmerMenu from "../ShimmerMenu";
@@ -7,6 +7,8 @@ import StarIcon from '@mui/icons-material/Star';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { yellow,amber } from '@mui/material/colors';
 import "./RestaurantsMenu.css";
+import { addItem } from "../../Utils/Slices/CartSlice";
+import { useDispatch } from "react-redux";
 
 const theme = createTheme({
     palette: {
@@ -17,7 +19,16 @@ const theme = createTheme({
 
 const RestaurantsMenu = () => {
   const { id } = useParams();
+
   const restaurant = useRestaurants(id);
+
+  const dispatch = useDispatch(); 
+
+  const handleAddItems =()=> {
+    // console.log("you clicked me!!!")
+    dispatch(addItem("Grapes"))
+  }
+
   return !restaurant ? (
     <ShimmerMenu /> 
   ) : (
@@ -77,18 +88,19 @@ const RestaurantsMenu = () => {
         >
               
           {
-            (restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards || restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards) 
+            (restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards || restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards) 
             ?
-            (restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards || restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards) &&
+            (restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards || restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards) &&
             Object.values(
-              restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards || restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card.itemCards
+              restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards || restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
             ).map((item) => (
               <div className="menu-sub-2" key={item.card.info.id}
               >
                 <div className="menu-item-con">
                   <div className="menu-item-con-data">
                     <p
-                      className="menu-item">
+                      className="menu-item"
+                      >
                       {item.card.info.name}
                     </p>
                     <p style={{ fontSize: "1rem" }}>{item.card.info.category}</p>
@@ -96,6 +108,9 @@ const RestaurantsMenu = () => {
                   </div>
                   <div className="menu-item-con-img">
                     <img src={IMG_CDN_URL + item.card.info.imageId} alt=""  />
+                    <button className="add-item-btn"
+                    onClick={handleAddItems}
+                    >Add</button>
                   </div>
                 </div>
               </div>

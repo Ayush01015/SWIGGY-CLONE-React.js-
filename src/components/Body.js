@@ -51,6 +51,10 @@ const Body = () => {
   useEffect(() => {
     getRestaurants();
   }, [latitude,longitude]);
+
+  const handleAddItems =()=> {
+    console.log("you clicked me!!!")
+  }
   
     // use this function to get your location coordinates and set the default value of latitude and longitude 
     // for now i am using static data
