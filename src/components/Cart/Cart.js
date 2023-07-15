@@ -7,20 +7,22 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div>
-      <span>Cart {cartItems.length}</span>
+    <div className="cart">
       {cartItems.length === 0 ? (
-        <div style={{ marginTop: "5rem",textAlign:"center" }}>
+        <div style={{ marginTop: "5rem", textAlign: "center" }}>
           <h1>Cart is Empty</h1>
         </div>
       ) : (
-        <div className="cart-container">
-          <div className="cart">
-            {cartItems.map((item) => (
-              <CartItem {...item.card.info} key={item.card.info.id} />
-            ))}
+        <>
+          <div className="cart-container">
+            <p>{cartItems.length} Items in your cart</p>
+            <div className="cart-component">
+                {cartItems.map((item) => (
+                  <CartItem {...item.card.info} key={item.card.info.id} />
+                ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
