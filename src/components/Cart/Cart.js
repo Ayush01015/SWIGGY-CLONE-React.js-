@@ -15,7 +15,7 @@ const Cart = () => {
       ) : (
         <>
           <div className="cart-container">
-            <p>{cartItems.length} Items in your cart</p>
+            <p className="items-count">{cartItems.length} Items in your cart</p>
             <div className="cart-component">
                 {cartItems.map((item) => (
                   <CartItem {...item.card.info} key={item.card.info.id} />
