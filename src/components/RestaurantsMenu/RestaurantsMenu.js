@@ -108,7 +108,7 @@ const RestaurantsMenu = () => {
                       {item.card.info.name}
                     </p>
                     <p style={{ fontSize: "1rem" }}>{item.card.info.category}</p>
-                    <p>₹{"Nan"?"1110":(item.card.info.price / 100)}</p>
+                    <p>₹{item.card.info.price===NaN?"1110":(item.card.info.price / 100)}</p>
                   </div>
                   <div className="menu-item-con-img">
                     <img src={IMG_CDN_URL + item.card.info.imageId} alt=""  />

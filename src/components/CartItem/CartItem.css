@@ -23,6 +23,19 @@
   width: 100%;
   object-fit: contain;
 }
+.cart-item-btn{
+   color: white;
+    padding: 5px 12px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: #f99417;
+    border: 1px solid black;
+    transition: 0.3s;
+    margin:0 0.3rem;
+}
 
 @media (min-width: 200px) {
   .cart-item-sec-1 {
