@@ -179,6 +179,15 @@
     margin-top: 10rem;
     font-size: 3rem;
   }
+
+  .add-item-btn{
+    padding: 3px 10px;
+    font-size: 0.6rem;
+    /* right: 500; */
+    /* border: 2px solid red; */
+    left: 4 ;
+    /* right: 400; */
+  }
 }
 
 @media (min-width: 318px) {
@@ -201,21 +210,37 @@
       margin-top: 6rem;
       font-size: 3.5rem;
     }
+    .add-item-btn{
+      padding: 3px 10px;
+      font-size: 0.6rem;
+      left: 22;
+    }
 
 }
-@media (min-width: 378px) {
+@media (min-width: 375px) {
   .menu-heading{
     top: 215;
   }
   .menu-sub{
       margin-top: 0rem;
+
   }
   .menu-span{
     margin-top: 6rem;
     font-size: 3.5rem;
   }
-}
 
+  .add-item-btn{
+    padding: 5px 12px;
+    font-size: 0.6rem;
+    left: 28;
+  }
+}
+@media (min-width: 425px) {
+  .add-item-btn{
+    left: 34;
+  }
+}
 @media (min-width: 768px) {
   .menu-header{
       flex-direction: column;
@@ -239,13 +264,19 @@
     margin-top: 0.2rem;
   }
   .menu-span{
-    margin-top: 9rem;
+    margin-top: 12rem;
     font-size: 3.5rem;
   }
 .restraunt-not-found{
   margin-top: 3rem;
   text-align: center;
   font-size: 2.2rem;
+}
+
+.add-item-btn{
+  padding: 8px 22px;
+  font-size: 1rem;
+  left: 60;
 }
 
 }
