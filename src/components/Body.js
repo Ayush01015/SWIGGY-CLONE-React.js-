@@ -13,11 +13,8 @@ const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
-  const [latitude, setLatitude] = useState(2.696701100186587);
-  const [longitude, setLongitude] = useState(7.22774819099834);
-  // 18.52085640806464, 73.85651774099463
-  //   const [latitude, setLatitude] = useState(28.696701100186587);
-  // const [longitude, setLongitude] = useState(77.22774819099834);
+  const [latitude, setLatitude] = useState(28.620948093201154);
+  const [longitude, setLongitude] = useState(77.05699993744116);
   const [loc, setLoc] = useState("Delhi");
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
