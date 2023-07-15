@@ -29,6 +29,10 @@ const RestaurantsMenu = () => {
     dispatch(addItem("Grapes"))
   }
 
+  const addFoodItem =(item)=> {
+    dispatch(addItem(item))
+  }
+
   return !restaurant ? (
     <ShimmerMenu /> 
   ) : (
@@ -109,7 +113,7 @@ const RestaurantsMenu = () => {
                   <div className="menu-item-con-img">
                     <img src={IMG_CDN_URL + item.card.info.imageId} alt=""  />
                     <button className="add-item-btn"
-                    onClick={handleAddItems}
+                    onClick={()=>addFoodItem(item)}
                     >Add</button>
                   </div>
                 </div>
