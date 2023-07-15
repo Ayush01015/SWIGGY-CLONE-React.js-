@@ -1,6 +1,7 @@
 import React from 'react'
+import "./Cart.css"
 
-const Instamart = () => {
+const Cart = () => {
   return (
     <div
     style={{
@@ -10,9 +11,9 @@ const Instamart = () => {
       alignItems:"center",
     }}
     >
-      <h1>Unveiling a World of Excitement, Coming Soon!!!!</h1>
+      <h1>Cart</h1>
     </div>
   )
 }
 
-export default Instamart
+export default Cart

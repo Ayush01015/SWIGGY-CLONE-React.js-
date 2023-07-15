@@ -7,7 +7,7 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import ErrorPage from "./components/ErrorPage";
 import Contact from "./components/Contact/Contact.js";
 // import Instamart from "./components/Instamart";
-
+import Cart from "./components/Cart/Cart.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Deals from "./components/Deals";
 import RestaurantsMenu from "./components/RestaurantsMenu/RestaurantsMenu";
@@ -24,7 +24,7 @@ on demand loading
 dynamic import
 (synonyms)
 */
-const Instamart = lazy(() => import("./components/Instamart.js")); //it's a promise(js)
+const Instamart = lazy(() => import("./components/Cart/Cart.js")); //it's a promise(js)
 
 const SwiGker = () => {
   const DarkModeProvider = ({ children }) => {
@@ -71,11 +71,9 @@ const appRouter = createBrowserRouter([
         element: <RestaurantsMenu />,
       },
       {
-        path: "/instamart",
+        path: "/cart",
         element: (
-          <Suspense fallback={<ShimmerCard/>}>
-            <Instamart />
-          </Suspense>
+          <Cart/>
         ),
       },
     ],

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Header.css";
-import UserContext from "../../Utils/UserContext";
+// import UserContext from "../../Utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [log, setLog] = useState(true);
@@ -13,9 +14,10 @@ const Header = () => {
     setIsNavbarActive(!isNavbarActive);
   };
 
-  const {user} = useContext(UserContext);
-  
-  {console.log("user",user)}
+  const cartItems = useSelector(store => store.cart.items);
+
+  // const {user} = useContext(UserContext);
+  // {console.log("user",user)}
 
   return (
     <header className={`header ${isNavbarActive ? "active" : ""}`}>
@@ -61,8 +63,8 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link className="navbar-link" to="/instamart">
-              Instamart
+            <Link className="navbar-link" to="/cart">
+              Cart - {cartItems.length}
             </Link>
           </li>
 
