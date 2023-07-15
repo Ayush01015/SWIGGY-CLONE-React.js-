@@ -2,7 +2,7 @@
     this file is used to store variable which we use in our whole project at different locations ( Something Like global Variable )
     we do this to make our code clean
 */
-
+// https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.52085640806464&lng=73.85651774099463&page_type=DESKTOP_WEB_LISTING
 export const IMG_CDN_URL =
   "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 // export const SWIGGY_PUBLIC_API =
@@ -23,11 +23,6 @@ export const SWIGGY_MENU_API_2 =
 //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.627981&lng=77.3648567&page_type=DESKTOP_WEB_LISTING";
 // export const SWIGGY_MENU_API =
 //   "https://www.swiggy.com/dapi/menu/v4/full?lat=28.627981&lng=77.3648567&menuId=";   
-
-
-
-
-
 
 // export const restaurantsList = [
 //   {

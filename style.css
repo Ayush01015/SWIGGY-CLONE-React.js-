@@ -168,3 +168,25 @@ body {
     background-clip: text;
   }
 }
+
+/* NO RESTAURANTS FOUND CSS */
+
+.no-restaurant{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  gap: 3rem;
+}
+
+.no-restaurant p{
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media(min-width:320px){
+  .no-restaurant{
+    padding: 0rem 1rem;
+}
+}

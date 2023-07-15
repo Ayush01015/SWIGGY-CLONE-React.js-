@@ -10,13 +10,15 @@ import Locator from "./Locator/Locator";
 import Banner from "./Banner/Banner";
 
 const Body = () => {
-
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
-  const [latitude, setLatitude] = useState(28.696701100186587);
-  const [longitude, setLongitude] = useState(77.22774819099834);
-  const [loc,setLoc] = useState("Delhi");
+  const [latitude, setLatitude] = useState(2.696701100186587);
+  const [longitude, setLongitude] = useState(7.22774819099834);
+  // 18.52085640806464, 73.85651774099463
+  //   const [latitude, setLatitude] = useState(28.696701100186587);
+  // const [longitude, setLongitude] = useState(77.22774819099834);
+  const [loc, setLoc] = useState("Delhi");
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const typingSpeed = 70; // Adjust the typing speed (in milliseconds)
@@ -50,43 +52,34 @@ const Body = () => {
 
   useEffect(() => {
     getRestaurants();
-  }, [latitude,longitude]);
+  }, [latitude, longitude]);
 
-  const handleAddItems =()=> {
-    console.log("you clicked me!!!")
-  }
-  
-    // use this function to get your location coordinates and set the default value of latitude and longitude 
-    // for now i am using static data
-    // const coords = getCoordinates();
-    // console.log("coords-->",coords.lat,coords.long);
-    
+  const handleAddItems = () => {
+    console.log("you clicked me!!!");
+  };
 
+  // use this function to get your location coordinates and set the default value of latitude and longitude
+  // for now i am using static data
+  // const coords = getCoordinates();
+  // console.log("coords-->",coords.lat,coords.long);
 
   const isOnline = useOnline();
   if (!isOnline) return <h1>Check Your Internet Connection</h1>;
 
-  if (!allRestaurants) return <h1
-          style={{
-            display:"flex",
-            justifyContent:"center",
-            alignItems:"center",
-            marginTop:"10rem",
-          }}
-  >No Restaurants Founds Please Try Again, Later</h1>; //early return
-
-  // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
-  return (
-    <div>
-      <div className="body-header"
+  if (!allRestaurants)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "10rem",
+        }}
+        className="no-restaurant"
       >
-        <Search
-          searchInput={searchInput}
-          setSearchInput={setSearchInput}
-          setfilteredRestaurants={setfilteredRestaurants}
-          allRestaurants={allRestaurants}
-        />
-          <Locator
+        <h1>No Restaurants Founds Please Try Again, Later</h1>
+        <p>Try changing your location</p>
+        <Locator
           latitude={latitude}
           setLatitude={setLatitude}
           longitude={longitude}
@@ -94,18 +87,36 @@ const Body = () => {
           setLoc={setLoc}
         />
       </div>
-      <Banner/>
-      
+    ); //early return
+
+  // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
+  return (
+    <div>
+      <div className="body-header">
+        <Search
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          setfilteredRestaurants={setfilteredRestaurants}
+          allRestaurants={allRestaurants}
+        />
+        <Locator
+          latitude={latitude}
+          setLatitude={setLatitude}
+          longitude={longitude}
+          setLongitude={setLongitude}
+          setLoc={setLoc}
+        />
+      </div>
+      <Banner />
+
       <div className="catch-phrase text-gradient tx-center">
         <h1 className="res-location">Restaurants in {loc}</h1>
         <h1 className="typing-effect">{text}</h1>
       </div>
       <div className="body">
-      {
-        allRestaurants.length === 0 
-        ? <ShimmerUI/>
-        :
-        filteredRestaurants.length === 0 ? (
+        {allRestaurants.length === 0 ? (
+          <ShimmerUI />
+        ) : filteredRestaurants.length === 0 ? (
           <h1>No Restaurant Found</h1>
         ) : (
           filteredRestaurants.map((restaurant) => {
@@ -119,8 +130,7 @@ const Body = () => {
               </Link>
             );
           })
-        )
-      }
+        )}
       </div>
     </div>
   );
