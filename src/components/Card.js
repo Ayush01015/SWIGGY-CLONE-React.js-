@@ -1,6 +1,6 @@
 import {IMG_CDN_URL} from "../constants"
 import StarIcon from '@mui/icons-material/Star';
-const Card = ({ name,costForTwoString, cloudinaryImageId ,address, totalRatingsString, deliveryTime, area, cuisines, avgRating }) => {
+const Card = ({ name,costForTwo, cloudinaryImageId ,address, totalRatingsString, sla, areaName, cuisines, avgRatingString }) => {
     return (
       <div className="card-component">
         <div className="card">
@@ -13,7 +13,7 @@ const Card = ({ name,costForTwoString, cloudinaryImageId ,address, totalRatingsS
           <div className="card-items">
             <span
               style={{
-                fontSize: "1.5rem",
+                fontSize: "1.3rem",
                 fontWeight: "bolder",
                 color: "gray",
               }}
@@ -21,12 +21,12 @@ const Card = ({ name,costForTwoString, cloudinaryImageId ,address, totalRatingsS
               {name}
             </span>
             {/* <p>{address}</p> */}
+            <p>{areaName}</p>
             <span id="cuisines">{cuisines?.join(", ")}</span>
-            <p>{area}</p>
             <div className="card-footer">
-              <div className="card-rating">{avgRating==="--"?"1.0":avgRating}<StarIcon fontSize="small"/></div>
-              <span>{deliveryTime} MINS</span>
-              <span>{costForTwoString}</span>
+              <div className="card-rating">{avgRatingString==="NEW"?"1.0":avgRatingString}<StarIcon fontSize="small"/></div>
+              <span>{sla.deliveryTime} MINS</span>
+              <span>{costForTwo}</span>
             </div>
           </div>
         </div>

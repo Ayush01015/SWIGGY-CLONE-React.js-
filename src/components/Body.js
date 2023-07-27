@@ -40,21 +40,23 @@ const Body = () => {
       `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
-    console.log("Json: ", json);
-    // console.log("Json: ", json?.data?.cards[1]?.data?.data?.cards);
-    // console.log("Json: ", json?.data?.cards[2]?.data?.data?.cards);
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in restaurants
-    setfilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards); //Setting data in filtered restaurants for search.
+    // console.log("Json: ", json);
+    console.log("Json: ", json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    // json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // console.log("Json: ", json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in restaurants
+    setfilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in filtered restaurants for search.
   }
 
   useEffect(() => {
     getRestaurants();
   }, [latitude, longitude]);
 
-  const handleAddItems = () => {
+  const handleAddItems = () => {  
     console.log("you clicked me!!!");
   };
 
+  // console.log("34",filteredRestaurants)
   // use this function to get your location coordinates and set the default value of latitude and longitude
   // for now i am using static data
   // const coords = getCoordinates();
@@ -122,8 +124,8 @@ const Body = () => {
                 to={"restaurants/" + restaurant?.data?.id}
                 key={restaurant?.data?.id}
               >
-                <Card {...restaurant.data} />
-                {/* {console.log("DATA: ",restaurant.data)} */}
+                <Card {...restaurant.info} />
+                {console.log("DATA: ",restaurant.info)}
               </Link>
             );
           })

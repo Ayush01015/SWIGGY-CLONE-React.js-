@@ -71,10 +71,8 @@ body {
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 245px;
   cursor: pointer;
-  height: 360px;
 }
 .card > img {
   width: 100%;
@@ -83,20 +81,19 @@ body {
 .card-items {
   display: flex;
   flex-direction: column;
-  height: 360px;
-  margin-top: 5px;
-  justify-content: space-evenly;
-  padding: 10px;
-  /*   */
+  height: 200px;
+  justify-content: space-between;
+  padding: 8px;
 }
 #cuisines {
   font-size: 0.8rem;
 }
 .card-footer{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   /* align-items: center; */
   width: 230px;
+  /* margin: 10px 0; */
 }
 .card-footer{
   font-size: 0.8rem;
