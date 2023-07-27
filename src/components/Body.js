@@ -40,12 +40,18 @@ const Body = () => {
       `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
-    // console.log("Json: ", json);
-    console.log("Json: ", json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    let resData;
+    console.log("Json: ", json);
+    // console.log("Json: ", json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     // json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     // console.log("Json: ", json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in restaurants
-    setfilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in filtered restaurants for search.
+    if(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants === undefined){
+      setAllRestaurants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in restaurants
+      setfilteredRestaurants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in filtered restaurants for search.
+    }else{
+      setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in restaurants
+      setfilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
+    }
   }
 
   useEffect(() => {
@@ -121,11 +127,11 @@ const Body = () => {
           filteredRestaurants.map((restaurant) => {
             return (
               <Link
-                to={"restaurants/" + restaurant?.data?.id}
-                key={restaurant?.data?.id}
+                to={"restaurants/" + restaurant?.info?.id}
+                key={restaurant?.info?.id}
               >
                 <Card {...restaurant.info} />
-                {console.log("DATA: ",restaurant.info)}
+                {/* {console.log("DATA: ",restaurant.info.id)} */}
               </Link>
             );
           })
