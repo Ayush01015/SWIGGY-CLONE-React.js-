@@ -1,0 +1,111 @@
+.menu-section-container{
+
+}
+.menu-section{
+    font-size: 0.6rem;
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    display: flex;
+    padding: 0.3rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+.menu-section-info{
+    font-size: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.menu-section-info p:nth-child(1) {
+    font-weight:800;
+    font-size: 0.76rem;    
+}
+.menu-section-info p:nth-child(2) {
+    font-weight: 600;
+}
+
+.menu-section-img{
+    width: 80%;
+    height: 100%;
+    position: relative;
+    max-width: 200px;
+    /* border: 1px solid red; */
+}
+
+.menu-section-img > img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.add-item-btn-2{
+    position: absolute;
+    bottom: -5;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.3rem;
+    font-weight: bold;
+    color: green;
+    border-radius: 6px;
+    border: 1px solid grey;
+    background-color: white;
+    text-transform: capitalize;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.add-item-btn-2:hover{
+    cursor: pointer;
+}
+
+.section-btn{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+}
+.display-btn{
+    font-size: 0.7rem;
+    padding: 0.1rem 0.3rem;
+    font-weight: bold;
+    color: green;
+    border-radius: 6px;
+    border: 1px solid grey;
+    background-color: white;
+    text-transform: capitalize;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    cursor: pointer;
+}
+@media(min-width:320px){
+    .add-item-btn-2{
+        font-size: 0.8rem;
+        padding: 0.3rem 0.7rem;
+    }
+}
+@media(min-width:375px){
+    .menu-section-img{
+        width: 50%;
+    }
+    .menu-section-info{
+        font-size: 0.9rem;
+    }
+    .menu-section-info p:nth-child(1) {
+        font-size: 1.1rem;    
+    }
+}
+@media(min-width:425px){
+    .add-item-btn-2{
+        font-size: 1rem;
+        padding: 0.3rem 1rem;
+    }
+}
+@media(min-width:768px){
+    .menu-section-info{
+        font-size: 1rem;
+        padding-right: 1rem;
+    }
+    .menu-section-info p:nth-child(1) {
+        font-size: 1.2rem;    
+    }
+}
+
+

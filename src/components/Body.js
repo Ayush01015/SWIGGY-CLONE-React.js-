@@ -112,12 +112,11 @@ const Body = () => {
           setLoc={setLoc}
         />
       </div>
-      <Banner />
-
       <div className="catch-phrase text-gradient tx-center">
         <h1 className="res-location">Restaurants in {loc}</h1>
         <h1 className="typing-effect">{text}</h1>
       </div>
+      <Banner />
       <div className="body">
         {allRestaurants.length === 0 ? (
           <ShimmerUI />

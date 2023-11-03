@@ -1,17 +1,28 @@
 .restraunt-menu {
   font-family: "Montserrat", sans-serif;
 }
+.menu-container{
+  background-color: #eeeeee;
+  padding: 10px;
+}
 .menu-header {
   background-color: #171a29;
   color: white;
   display: flex;
   width: 100%;
   padding: 1rem;
-  position: fixed;
-  top: 80;
-  z-index: 10;
+  border-radius: 10px;
+  color: black;
+  background-color: white;
+  border: 1px solid rgb(181, 181, 181);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-.menu-header-img {
+.menu-head{
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid red;  */
+}
+.menu-header-img { 
   width: 80%;
   padding: 0.5em;
   max-width: 300px;
@@ -24,34 +35,31 @@
 .header-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .menu-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 400px;
   padding: 0rem 0.5em;
+  gap: 0.5rem;
 }
 .menu-footer > span {
   font-size: 1.1rem;
 }
 .sub-menu-item {
-  margin-right: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
 }
 .menu {
-  margin-top: 8.3rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   font-family: "Montserrat", sans-serif;
   overflow-y: scroll;
-  border: 1px solid forestgreen;
 }
 .menu-heading {
   width: 100%;
@@ -111,7 +119,6 @@
 .menu-span {
   font-size: 4rem;
   font-weight: 600;
-  margin-top: 12rem;
 }
 .shimmer-menu {
   align-items: center;
@@ -120,24 +127,19 @@
     font-size: 1.2rem;
     font-weight: 600;
 }
-.header-info{
-  margin-left: -3rem;
-}
-.menu-head{
-  display: flex;
-  
-}
+
 .restraunt-not-found{
   margin-top: 3rem;
   text-align: center;
 }
 @media (min-width: 200px) {
+
   .menu-header {
     display: flex;
     flex-direction: column;
     padding: 0.5em;
+    margin-top: 5rem;
   }
-  
   .menu-header-img {
     width: 100%;
     min-width: 140px;
@@ -163,7 +165,8 @@
     font-size: 0.7rem;
   }
   .menu-footer > span{
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    font-weight: 600;
   }
   .menu-header-img{
     width: 10%;
@@ -176,7 +179,6 @@
     padding-right: 0.5em;
   }
   .menu-span{
-    margin-top: 10rem;
     font-size: 3rem;
   }
 
@@ -191,29 +193,34 @@
 }
 
 @media (min-width: 318px) {
+    .menu-head{
+      flex-direction: row;
+    }
     .menu-item{
         font-size: 1rem;
     }
     .res-name{
       font-size: 1rem;
     }
-    .menu-header-img{
-      width: 10%;
-    }
-    .menu-header-img > img{
-      width: 100%;
-    }
     .header-info{
-      margin-left: 0.5rem;
+      margin-left: -3rem;
     }
     .menu-span{
-      margin-top: 6rem;
       font-size: 3.5rem;
+    }
+    .menu-footer{
+      max-width: 250px;
+    }
+    .menu-footer > span{
+      font-size: 0.8rem;
+
     }
     .add-item-btn{
       padding: 3px 10px;
       font-size: 0.6rem;
       left: 22;
+    }
+    .sub-menu-item{
     }
 
 }
@@ -222,11 +229,10 @@
     top: 215;
   }
   .menu-sub{
-      margin-top: 0rem;
+      /* margin-top: 0rem; */
 
   }
   .menu-span{
-    margin-top: 6rem;
     font-size: 3.5rem;
   }
 
@@ -264,8 +270,10 @@
     margin-top: 0.2rem;
   }
   .menu-span{
-    margin-top: 12rem;
     font-size: 3.5rem;
+  }
+  .header-info{
+    margin-left: 0.1rem;
   }
 .restraunt-not-found{
   margin-top: 3rem;
@@ -286,7 +294,6 @@
     margin-top: 0.2rem;
   }
   .menu-span{
-    margin-top: 11rem;
     font-size: 3.5rem;
   }
 }
@@ -305,7 +312,6 @@
     margin-top: 0.2rem;
   }
   .menu-span{
-    margin-top: 11rem;
     font-size: 3.5rem;
   }
 }
@@ -315,7 +321,7 @@
     margin-top: 0.5rem;
   }
   .menu-span{
-    margin-top: 12.5rem;
+    /* border: 10px solid red; */
     font-size: 3.5rem;
   }
 }
