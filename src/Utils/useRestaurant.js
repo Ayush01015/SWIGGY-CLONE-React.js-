@@ -14,7 +14,7 @@ const useRestaurants = (id) => {
       console.log("--------->",SWIGGY_MENU_API_2+id+"&submitAction=ENTER");
       const json = await data.json();
       setRestaurant(json.data);
-      console.log("json ka dta",json.data);
+      console.log("JSON",json.data);
       
     }
 

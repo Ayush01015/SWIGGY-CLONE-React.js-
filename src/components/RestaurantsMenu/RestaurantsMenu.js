@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, useSearchParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../../constants";
 import ShimmerMenu from "../ShimmerMenu";
 import useRestaurants from "../../Utils/useRestaurant";
@@ -23,29 +23,8 @@ const RestaurantsMenu = () => {
   const restaurant = useRestaurants(id);
   const restaunrantItem =
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR;
-  console.log("ress", restaunrantItem);
-  // if(restaunrantItem === undefined) return <h1>fuck</h1>;
-  {
-    /**
-    
-    
-      restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
-      ?.card?.itemCards;
-    
-  //   */
-    //  console.log("restaunrantItem", restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR);
-    console.log("restaunrantItemNew", restaunrantItem);
-    //  console.log("restaunrantItemNew", restaunrantItem.cards[2].card.card.itemCards);
-    //  console.log("data 1", restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR.cards?.[1]);
-    //  console.log("data 2", restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR.cards?.[1].card);
-    //  console.log("data 3",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR.cards?.[1]?.card?.card);
-    //  Object.values(restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards).map((item,i)=>{
-    //     console.log(i+1,item?.card?.card?.title);
-    //  })
-  }
   const dispatch = useDispatch();
   const handleAddItems = () => {
-    // console.log("you clicked me!!!")
     dispatch(addItem("Grapes"));
   };
   const addFoodItem = (item) => {
@@ -116,8 +95,8 @@ const RestaurantsMenu = () => {
                 .slice(1)
                 .map((item, i) => (
                   <>
-                    {console.log(item?.card?.card?.itemCards)}
-                    <Accordian {...item?.card?.card?.itemCards} />
+                  {/* {console.log(i+1,...item?.card?.card?.itemCard)} */}
+                  <Accordian {...item?.card?.card?.itemCards} key={i} />
                   </>
                 ))}
             </div>
@@ -136,35 +115,52 @@ const RestaurantsMenu = () => {
                     ?.cards[2]?.card?.card?.itemCards ||
                     restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR
                       ?.cards[2]?.card?.card?.itemCards
-                ).map((item) => (
-                  <div className="menu-sub-2" key={item.card.info.id}>
-                    <div className="menu-item-con">
-                      <div className="menu-item-con-data">
-                        <p className="menu-item">{item.card.info.name}</p>
-                        <p style={{ fontSize: "1rem" }}>
-                          {item.card.info.category}
-                        </p>
-                        <p>
-                          ₹
-                          {item.card.info.price === NaN
-                            ? "1110"
-                            : item.card.info.price / 100}
-                        </p>
-                      </div>
-                      <div className="menu-item-con-img">
-                        <img
-                          src={IMG_CDN_URL + item.card.info.imageId}
-                          alt=""
-                        />
-                        <button
-                          className="add-item-btn"
-                          onClick={() => addFoodItem(item)}
-                        >
-                          Add
-                        </button>
+                ).map((item,i) => (
+                  <>
+                    <div className="menu-section-container" key={i}>
+                      <div className="menu-section">
+                        <div className="menu-section-info">
+                          <p>{item?.card?.info?.name}</p>
+                          {console.log("->",item?.card?.info)}
+                          <p>
+                            ₹
+                            {!isNaN(item?.card?.info?.price)
+                              ? item?.card?.info?.price / 100
+                              : (100 + Math.random() * 350).toFixed(2)}
+                          </p>
+                          <p>
+                            ⭐
+                            {item?.card?.info?.ratings?.aggregatedRating
+                              ?.rating === undefined
+                              ? (1 + Math.random() * 4).toFixed(1)
+                              : item?.card?.info?.ratings?.aggregatedRating
+                                  ?.rating}
+                          </p>
+                        </div>
+                        <div className="menu-section-img">
+                          {IMG_CDN_URL + item?.card?.info?.imageId !==
+                          undefined ? (
+                            <img
+                              src={IMG_CDN_URL + item?.card?.info?.imageId}
+                              alt=""
+                            />
+                          ) : (
+                            <Skeleton
+                              variant="rounded"
+                              height="17.5vh"
+                              sx={{ borderRadius: "10px" }}
+                            />
+                          )}
+                          <button
+                            className="add-item-btn-2"
+                            onClick={() => addFoodItem(item)}
+                          >
+                            ADD
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </>
                 ))
               ) : (
                 <h3 className="restraunt-not-found">
@@ -180,3 +176,87 @@ const RestaurantsMenu = () => {
 };
 
 export default RestaurantsMenu;
+
+// {item.card.info.category !== "" ? (
+//   <div className="menu-categories">
+//     <p className="menu-category-name">{item.card.info.category}</p>
+//     <button className="menu-categories-btn">SHOW</button>
+//   </div>
+// ) : null}
+// <div className="menu-section-container">
+//     <>
+//       <div className="menu-section">
+//         <div className="menu-section-info">
+//           <p>{item?.card?.info?.name}</p>
+//           {console.log(item?.card?.info?.price / 100)}
+//           <p>
+//             ₹
+//             {!isNaN(item?.card?.info?.price)
+//               ? data[key]?.card?.info?.price / 100
+//               : (100 + Math.random() * 350).toFixed(2)
+//               }
+//           </p>
+//           <p>
+//             ⭐
+//             {item?.card?.info?.ratings?.aggregatedRating?.rating ===
+//             undefined
+//               ? (1 + Math.random() * 4).toFixed(1)
+//               : item?.card?.info?.ratings?.aggregatedRating?.rating}
+//           </p>
+//           <p>{truncateText(data[key]?.card?.info?.description)}</p>
+//         </div>
+
+//         <div className="menu-section-img">
+//           {IMG_CDN_URL + item?.card?.info?.imageId !== undefined ? (
+//             <img
+//               src={IMG_CDN_URL + item?.card?.info?.imageId}
+//               alt=""
+//             />
+//           ) : (
+//             <Skeleton
+//               variant="rounded"
+//               height="17.5vh"
+//               sx={{ borderRadius: "10px" }}
+//             />
+//           )}
+//           <button
+//             className="add-item-btn-2"
+//             // onClick={()=>addFoodItem("item")}
+//           >
+//             ADD
+//           </button>
+//         </div>
+//       </div>
+//     </>
+// </div>
+
+{
+  /* <div className="menu-sub-2" key={item.card.info.id}>
+<div className="menu-item-con">
+  <div className="menu-item-con-data">
+    <p className="menu-item">{item.card.info.name}</p>
+    <p style={{ fontSize: "1rem" }}>
+      {item.card.info.category}
+    </p>
+    <p>
+      ₹
+      {item.card.info.price === NaN
+        ? "1110"
+        : item.card.info.price / 100}
+    </p>
+  </div>
+  <div className="menu-item-con-img">
+    <img
+      src={IMG_CDN_URL + item.card.info.imageId}
+      alt=""
+    />
+    <button
+      className="add-item-btn"
+      onClick={() => addFoodItem(item)}
+    >
+      Add
+    </button>
+  </div>
+</div>
+</div> */
+}

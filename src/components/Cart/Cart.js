@@ -12,7 +12,7 @@ const Cart = () => {
     // console.log("cartItem",cartItems[0].card.info.price)
     let index = -1;
     cartItems.map((cartItem, i) => {
-      if (cartItem.card.info.id === id) {
+      if (cartItem?.card?.info?.id === id) {
         index = i;
       }
     });
@@ -28,7 +28,7 @@ const Cart = () => {
   };
 
   const totalPrice = cartItems.reduce((price, currentValue) => {
-    return price + currentValue.card.info.price;
+    return price + currentValue?.card?.info?.price;
   }, 0);
 
   return (
@@ -43,10 +43,10 @@ const Cart = () => {
             <p className="items-count">{cartItems.length} Items in your cart</p>
             <div className="cart-component">
               {cartItems.map((item) => {
-                const idx = index(item.card.info.id)
+                const idx = index(item?.card?.info?.id)
                 {/* console.log("idx", idx); */}
                 {/* console.log("ID", item.card.info.id); */}
-               return <CartItem {...item.card.info} key={item.card.info.id} id={idx}/>
+               return <CartItem {...item?.card?.info} key={item?.card?.info?.id} id={idx}/>
               })}
               <div>
                 <p
