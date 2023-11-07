@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../../constants";
 import ShimmerMenu from "../ShimmerMenu";
 import useRestaurants from "../../Utils/useRestaurant";
@@ -23,19 +23,38 @@ const RestaurantsMenu = () => {
   const { id } = useParams();
 
   const restaurant = useRestaurants(id);
-
   const restaunrantItem =
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR;
 
+  console.log("res", restaunrantItem);
   const regularCards =
-    restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards
-     ||
-    restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards;
-    // console.log("regularCards: ",regularCards);
-    // console.log("2 2",restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards )
-    // console.log("3 2",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards )
-    // console.log("009",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR )
-    // console.log("resItem",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR)
+    restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
+      ?.card?.itemCards ||
+    restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
+      ?.card?.itemCards ||
+    restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[1]?.card
+      ?.card?.itemCards ||
+    restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
+      ?.card?.itemCards;
+  // console.log("regularCards: ", regularCards);
+  console.log(
+    "2 2",
+    restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
+      ?.card?.itemCards
+  );
+  console.log(
+    "3 2",
+    restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card
+      ?.card?.itemCards
+  );
+  console.log(
+    "009",
+    restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR
+  );
+  console.log(
+    "resItem",
+    restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR
+  );
 
   const dispatch = useDispatch();
 
@@ -111,25 +130,22 @@ const RestaurantsMenu = () => {
                 .slice(1)
                 .map((item, i) => (
                   <>
-                  {/* {console.log(i+1,...item?.card?.card?.itemCard)} */}
-                  <Accordian {...item?.card?.card?.itemCards} key={i} />
+                    {/* {console.log(i+1,...item?.card?.card?.itemCard)} */}
+                    <Accordian {...item?.card?.card?.itemCards} key={i} />
                   </>
                 ))}
             </div>
-          ) 
-          : (
+          ) : (
             <div className="menu-sub">
               {regularCards ? (
-                (regularCards) &&
-                Object.values(
-                  regularCards
-                ).map((item,i) => (
+                regularCards &&
+                Object.values(regularCards).map((item, i) => (
                   <>
                     <div className="menu-section-container" key={i}>
                       <div className="menu-section">
                         <div className="menu-section-info">
                           <p>{item?.card?.info?.name}</p>
-                          {console.log("->",item?.card?.info)}
+                          {console.log("->", item?.card?.info)}
                           <p>
                             ₹
                             {!isNaN(item?.card?.info?.price)
@@ -146,9 +162,8 @@ const RestaurantsMenu = () => {
                           </p>
                         </div>
                         <div className="menu-section-img">
-                        {/* {console.log("imgiD",IMG_CDN_URL + item?.card?.info?.imageId)} */}
-                          {item?.card?.info?.imageId !==
-                          undefined ? (
+                          {/* {console.log("imgiD",IMG_CDN_URL + item?.card?.info?.imageId)} */}
+                          {item?.card?.info?.imageId !== undefined ? (
                             <img
                               src={IMG_CDN_URL + item?.card?.info?.imageId}
                               alt=""
@@ -176,7 +191,6 @@ const RestaurantsMenu = () => {
                   Apologies, the restaurant is closed for the day
                 </h3>
               )}
-              
             </div>
           )}
         </>

@@ -1,5 +1,5 @@
 import {IMG_CDN_URL} from "../constants"
-import StarIcon from '@mui/icons-material/Star';
+import StarIcon from '@mui/icons-material/Star'; 
 const Card = ({ name,costForTwo, cloudinaryImageId ,address, totalRatingsString, sla, areaName, cuisines, avgRatingString }) => {
     return (
       <div className="card-component">
