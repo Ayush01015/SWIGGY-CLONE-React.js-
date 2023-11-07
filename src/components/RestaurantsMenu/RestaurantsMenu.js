@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import React from "react";
+import { useParams} from "react-router-dom";
 import { IMG_CDN_URL } from "../../constants";
 import ShimmerMenu from "../ShimmerMenu";
 import useRestaurants from "../../Utils/useRestaurant";

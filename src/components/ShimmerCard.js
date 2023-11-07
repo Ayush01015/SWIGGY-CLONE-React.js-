@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 
 const ShimmerCard = ()=>{
     return(
-        <Stack className="card-component" spacing={1}>
+        <Stack className="card-component disScale" spacing={1}>
         <div className="card">
           <Skeleton variant="rectangular" width={245} height={184} />
           <div className="card-items">

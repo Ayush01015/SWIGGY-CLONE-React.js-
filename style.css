@@ -6,10 +6,10 @@
   box-sizing: border-box;
 }
 a {
-  all: unset; 
+  all: unset;
 }
 body {
-  background-color: white; 
+  background-color: white;
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
 }
@@ -29,7 +29,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 4rem;
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 .body-header {
@@ -48,30 +48,39 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    
   }
-
 }
 
-.primary-color{
+.primary-color {
   color: #f99417;
   text-decoration: underline;
 }
-.underline{
+.underline {
   text-decoration: underline;
 }
 
-
 .card-component {
   margin: 15px;
+  width: 100%;
+  width: 245px;
   font-family: "Montserrat", sans-serif;
+  transition: all 0.4s ease;
+  /* border: 1px solid red; */
+}
+
+.card-component:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(1.06);
+}
+.disScale:hover{
+  transform: scale(1);
 }
 .card {
   border: 1px solid #d5d5d5;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  width: 245px;
+  width: 100%;
   cursor: pointer;
 }
 .card > img {
@@ -86,7 +95,7 @@ body {
   justify-content: space-evenly;
   padding: 8px;
 }
-.card-items > span{
+.card-items > span {
   font-size: 1.3rem;
   font-weight: bolder;
   color: gray;
@@ -94,27 +103,24 @@ body {
 #cuisines {
   font-size: 0.8rem;
 }
-.card-footer{
+.card-footer {
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
   width: 230px;
   /* margin: 10px 0; */
 }
-.card-footer{
+.card-footer {
   font-size: 0.8rem;
 }
 .card-rating {
   display: flex;
   justify-content: center;
-  align-items: center;  
-  background-color: #48C479;
+  align-items: center;
+  background-color: #48c479;
   color: white;
   width: 55px;
 }
-
-
-
 
 /* BODY NEW CSS */
 .tx-center {
@@ -142,24 +148,24 @@ body {
 .fullWidthSkeleton {
   width: 100%;
 }
-@media(min-width:425px){
-      .res-location {
-        font-size: 2.4rem;
-      }
-      
-      .typing-effect {
-        font-size: 1.5rem;
-      }
+@media (min-width: 425px) {
+  .res-location {
+    font-size: 2.4rem;
+  }
+
+  .typing-effect {
+    font-size: 1.5rem;
+  }
 }
 
-@media(min-width:768px){
-      .res-location {
-        font-size: 4rem;
-      }
-      
-      .typing-effect {
-        font-size: 2rem;
-      }
+@media (min-width: 768px) {
+  .res-location {
+    font-size: 4rem;
+  }
+
+  .typing-effect {
+    font-size: 2rem;
+  }
 }
 
 /* 👇 show the text gradient in modern browsers */
@@ -174,7 +180,7 @@ body {
 
 /* NO RESTAURANTS FOUND CSS */
 
-.no-restaurant{
+.no-restaurant {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -183,13 +189,13 @@ body {
   gap: 3rem;
 }
 
-.no-restaurant p{
+.no-restaurant p {
   font-size: 2rem;
   font-weight: 500;
 }
 
-@media(min-width:320px){
-  .no-restaurant{
+@media (min-width: 320px) {
+  .no-restaurant {
     padding: 0rem 1rem;
+  }
 }
-} 
