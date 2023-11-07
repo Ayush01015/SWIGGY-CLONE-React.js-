@@ -10,6 +10,7 @@ import "./RestaurantsMenu.css";
 import { addItem } from "../../Utils/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import Accordian from "../Accordian/Accordian";
+import Skeleton from "@mui/material/Skeleton";
 
 const theme = createTheme({
   palette: {
@@ -138,7 +139,8 @@ const RestaurantsMenu = () => {
                           </p>
                         </div>
                         <div className="menu-section-img">
-                          {IMG_CDN_URL + item?.card?.info?.imageId !==
+                        {console.log("imgiD",IMG_CDN_URL + item?.card?.info?.imageId)}
+                          {item?.card?.info?.imageId !==
                           undefined ? (
                             <img
                               src={IMG_CDN_URL + item?.card?.info?.imageId}

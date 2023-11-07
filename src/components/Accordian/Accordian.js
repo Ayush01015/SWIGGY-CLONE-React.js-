@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { IMG_CDN_URL } from "../../constants";
 import Skeleton from "@mui/material/Skeleton";
+import { addItem } from "../../Utils/Slices/CartSlice";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+
+
 import "./Accordian.css";
 function truncateText(text) {
   if (text) {
@@ -16,6 +19,11 @@ function truncateText(text) {
   }
   return ""; // Return an empty string if text is undefined
 }
+
+
+const addFoodItem = (item) => {
+  dispatch(addItem(item));
+};
 
 const Section = ({
   title,

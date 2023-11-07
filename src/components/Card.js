@@ -11,16 +11,9 @@ const Card = ({ name,costForTwo, cloudinaryImageId ,address, totalRatingsString,
             alt="img"
           />
           <div className="card-items">
-            <span
-              style={{
-                fontSize: "1.3rem",
-                fontWeight: "bolder",
-                color: "gray",
-              }}
-            >
+            <span>
               {name}
             </span>
-            {/* <p>{address}</p> */}
             <p>{areaName}</p>
             <span id="cuisines">{cuisines?.join(", ")}</span>
             <div className="card-footer">

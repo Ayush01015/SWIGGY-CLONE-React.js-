@@ -81,9 +81,15 @@ body {
 .card-items {
   display: flex;
   flex-direction: column;
-  height: 200px;
-  justify-content: space-between;
+  height: 160px;
+  /* gap: 1rem; */
+  justify-content: space-evenly;
   padding: 8px;
+}
+.card-items > span{
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: gray;
 }
 #cuisines {
   font-size: 0.8rem;

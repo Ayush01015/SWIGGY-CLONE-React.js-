@@ -132,6 +132,9 @@
   margin-top: 3rem;
   text-align: center;
 }
+.menu-recommended-items{
+  width: 100%;
+}
 @media (min-width: 200px) {
 
   .menu-header {
@@ -145,7 +148,7 @@
     min-width: 140px;
   }
   .menu-header-img > img {
-    width: 50%;
+    width: 90%;
   }
   .menu-head-content {
     padding: 0.5em;
