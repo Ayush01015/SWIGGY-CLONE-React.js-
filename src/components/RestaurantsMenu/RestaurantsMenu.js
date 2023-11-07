@@ -21,13 +21,28 @@ const theme = createTheme({
 
 const RestaurantsMenu = () => {
   const { id } = useParams();
+
   const restaurant = useRestaurants(id);
+
   const restaunrantItem =
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR;
+
+  const regularCards =
+    restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards
+     ||
+    restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards;
+    // console.log("regularCards: ",regularCards);
+    // console.log("2 2",restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards )
+    // console.log("3 2",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards )
+    // console.log("009",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR )
+    // console.log("resItem",restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR)
+
   const dispatch = useDispatch();
+
   const handleAddItems = () => {
     dispatch(addItem("Grapes"));
   };
+
   const addFoodItem = (item) => {
     dispatch(addItem(item));
   };
@@ -101,21 +116,13 @@ const RestaurantsMenu = () => {
                   </>
                 ))}
             </div>
-          ) : (
+          ) 
+          : (
             <div className="menu-sub">
-              {restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR
-                ?.cards[2]?.card?.card?.itemCards ||
-              restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-                ?.card?.card?.itemCards ? (
-                (restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR
-                  ?.cards[2]?.card?.card?.itemCards ||
-                  restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR
-                    ?.cards[2]?.card?.card?.itemCards) &&
+              {regularCards ? (
+                (regularCards) &&
                 Object.values(
-                  restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR
-                    ?.cards[2]?.card?.card?.itemCards ||
-                    restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR
-                      ?.cards[2]?.card?.card?.itemCards
+                  regularCards
                 ).map((item,i) => (
                   <>
                     <div className="menu-section-container" key={i}>
@@ -139,7 +146,7 @@ const RestaurantsMenu = () => {
                           </p>
                         </div>
                         <div className="menu-section-img">
-                        {console.log("imgiD",IMG_CDN_URL + item?.card?.info?.imageId)}
+                        {/* {console.log("imgiD",IMG_CDN_URL + item?.card?.info?.imageId)} */}
                           {item?.card?.info?.imageId !==
                           undefined ? (
                             <img
@@ -169,6 +176,7 @@ const RestaurantsMenu = () => {
                   Apologies, the restaurant is closed for the day
                 </h3>
               )}
+              
             </div>
           )}
         </>
