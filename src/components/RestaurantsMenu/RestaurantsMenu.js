@@ -56,15 +56,15 @@ const RestaurantsMenu = () => {
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR
   );
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const handleAddItems = () => {
-    dispatch(addItem("Grapes"));
-  };
+  // const handleAddItems = () => {
+  //   dispatch(addItem("Grapes"));
+  // };
 
-  const addFoodItem = (item) => {
-    dispatch(addItem(item));
-  };
+  // const addFoodItem = (item) => {
+  //   dispatch(addItem(item));
+  // };
 
   return !restaurant ? (
     <ShimmerMenu />
@@ -177,7 +177,7 @@ const RestaurantsMenu = () => {
                           )}
                           <button
                             className="add-item-btn-2"
-                            onClick={() => addFoodItem(item)}
+                            // onClick={() => addFoodItem(item)}
                           >
                             ADD
                           </button>

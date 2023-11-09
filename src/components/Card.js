@@ -15,7 +15,7 @@ const Card = ({ name,costForTwo, cloudinaryImageId ,address, totalRatingsString,
               {name}
             </span>
             <p>{areaName}</p>
-            <span id="cuisines">{cuisines?.join(", ")}</span>
+            <p id="cuisines">{cuisines?.join(", ")}</p>
             <div className="card-footer">
               <div className="card-rating">{avgRatingString==="NEW"?"1.0":avgRatingString}<StarIcon fontSize="small"/></div>
               <span>{sla.deliveryTime} MINS</span>
