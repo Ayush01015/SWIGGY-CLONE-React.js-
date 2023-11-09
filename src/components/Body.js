@@ -1,13 +1,12 @@
 import Card from "../components/Card";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { SWIGGY_PUBLIC_API } from "../constants";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
-import { filterData } from "../Utils/Utils";
 import useOnline from "../Utils/useOnline";
 import Search from "./Search/Search";
 import Locator from "./Locator/Locator";
-import Banner from "./Banner/Banner";
+import DarkModeContext from "../Context/DarkModeContext/DarkModeContext";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
@@ -20,6 +19,7 @@ const Body = () => {
   const [index, setIndex] = useState(0);
   const typingSpeed = 70; // Adjust the typing speed (in milliseconds)
   const fullText = `Feast on Exquisite Cuisine`; // The text you want to display with the typing effect
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,15 +42,27 @@ const Body = () => {
     const json = await data.json();
     let resData;
     console.log("Json: ", json);
-    // console.log("Json: ", json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    // json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // console.log("Json: ", json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    if(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants === undefined){
-      setAllRestaurants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in restaurants
-      setfilteredRestaurants(json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in filtered restaurants for search.
-    }else{
-      setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); //Setting data in restaurants
-      setfilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants); 
+    if (
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants === undefined
+    ) {
+      setAllRestaurants(
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      ); //Setting data in restaurants
+      setfilteredRestaurants(
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      ); //Setting data in filtered restaurants for search.
+    } else {
+      setAllRestaurants(
+        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      ); //Setting data in restaurants
+      setfilteredRestaurants(
+        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
     }
   }
 
@@ -58,17 +70,10 @@ const Body = () => {
     getRestaurants();
   }, [latitude, longitude]);
 
-  const handleAddItems = () => {  
-    console.log("you clicked me!!!");
-  };
 
-  // console.log("34",filteredRestaurants)
-  // use this function to get your location coordinates and set the default value of latitude and longitude
-  // for now i am using static data
-  // const coords = getCoordinates();
-  // console.log("coords-->",coords.lat,coords.long);
 
   const isOnline = useOnline();
+
   if (!isOnline) return <h1>Check Your Internet Connection</h1>;
 
   if (!allRestaurants)

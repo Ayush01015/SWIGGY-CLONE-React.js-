@@ -2,13 +2,10 @@
 
 .location-selector {
     width: 95%;
+    height: 100%;
     margin-top: 1rem;
-    /* padding: 0 0.1em; */
-    /* max-width: 300px; */
-    /* border: 1px solid red; */
-    /* z-index: -1; */
-    /* display: none; */
-    /* z-index: -1; */
+    padding-bottom: 0px;
+    border-radius: 5px;
 }
 @media (min-width: 425px) {
     .location-selector{
@@ -18,7 +15,6 @@
 @media (min-width: 525px) {
     .location-selector {
       margin-top: 10px;
-      padding-bottom: 23px;
     }
 
     .location-selector {

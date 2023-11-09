@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import Paper from '@mui/material/Paper';
+import Paper from "@mui/material/Paper";
+import DarkModeContext from "../../Context/DarkModeContext/DarkModeContext";
 import "./Locator.css";
-// import Listbox from '@mui/material/Listbox';
-
-// const API_END_POINT = `https://api.openweathermap.org/data/2.5/onecall?`;
-// const API_KEY = `b4d82e597d9b74b91cb091d0a8c07795`;
 
 const locations = [
   {
@@ -74,8 +71,15 @@ const locations = [
   },
 ];
 
-const Locator = ({ latitude, longitude, setLatitude, setLongitude, setLoc }) => {
+const Locator = ({
+  latitude,
+  longitude,
+  setLatitude,
+  setLongitude,
+  setLoc,
+}) => {
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const { darkModeEnable } = useContext(DarkModeContext);
 
   const handleLocationChange = (event, value) => {
     if (value !== null) {
@@ -91,6 +95,16 @@ const Locator = ({ latitude, longitude, setLatitude, setLongitude, setLoc }) => 
   return (
       <Autocomplete
         className="location-selector"
+        style={
+          darkModeEnable
+            ? {
+                backgroundColor: "white",
+              }
+            : {
+                backgroundColor: "transparent",
+              }
+            
+        }
         options={locations}
         getOptionLabel={(option) => option.label}
         value={selectedLocation}
@@ -100,10 +114,20 @@ const Locator = ({ latitude, longitude, setLatitude, setLongitude, setLoc }) => 
           <TextField {...params} label="Select Location" variant="outlined" />
         )}
         PaperComponent={({ children }) => (
-          <Paper style={{ width: 200, fontFamily:"Montserrat", color:"black", fontWeight:600 }}>{children}</Paper>
+          <Paper
+            style={{
+              width: 200,
+              fontFamily: "Montserrat",
+              color: "black",
+              fontWeight: 600,
+            }}
+          >
+            {children}
+          </Paper>
         )}
       />
   );
 };
- 
+
 export default Locator;
+
