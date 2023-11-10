@@ -84,6 +84,8 @@ const Body = () => {
           justifyContent: "center",
           alignItems: "center",
           marginTop: "10rem",
+          marginBottom: "10rem",
+          height:"100%",
         }}
         className="no-restaurant"
       >
