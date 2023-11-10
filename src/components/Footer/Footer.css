@@ -1,0 +1,49 @@
+
+
+.footer{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1% 10%;
+}
+
+.footer-element > h2{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.footer-element > p{
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.footer-element > div >h3,
+.footer-element > h3{
+    margin-bottom: 1rem;
+    cursor: pointer;
+    
+}
+.footer-element > div >p{
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.legal{
+    margin-top: 0.5rem;
+}
+
+.darkFooter{
+    background-color: #11161A;
+    color: white;
+}
+
+.lightFooter{
+    background-color: #F5F7F8;
+}
