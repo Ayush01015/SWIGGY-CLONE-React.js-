@@ -13,6 +13,9 @@
 
 .cart-item-sec{
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
   /* border: 2px solid black; */
 }
 .cart-item-img{
@@ -58,3 +61,17 @@
 .bg-dark{
   background-color: black;
 }
+
+@media(min-width:320px){
+  .del-icon{
+    width: 28px;
+    height: 28px;
+  }
+}
+@media(min-width:320px){
+  .del-icon{
+    width: 32px;
+    height: 32px;
+  }
+}
+

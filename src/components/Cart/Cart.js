@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import "./Cart.css";
 import CartItem from "../CartItem/CartItem";
 import { useContext } from "react";
 import CartContext from "../../Context/CartContext/CartContext";
+import Img from "../../assets/img/cart-zero-.png"
+
 
 const Cart = () => {
   const { cartItems,totalCartPrice } = useContext(CartContext);
-  console.log("cartItem  123", cartItems);
+  
   return (
     <div className="cart">
       {cartItems?.length === 0 ? (
-        <div style={{ marginTop: "20%", textAlign: "center" }}>
+        <div className="empty-cart">
           <h1>Cart is Empty</h1>
+          <img src={Img}/>
         </div>
       ) : (
         <>
