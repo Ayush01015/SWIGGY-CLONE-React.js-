@@ -97,7 +97,7 @@ const Section = ({
                   )}
                   <button
                     className="add-item-btn-2"
-                    onClick={() => addItem(item)}
+                    onClick={() => addItem(data[key])}
                   >
                     ADD
                   </button>
