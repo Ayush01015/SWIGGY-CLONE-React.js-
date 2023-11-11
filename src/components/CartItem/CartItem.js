@@ -6,17 +6,17 @@ import Skeleton from "@mui/material/Skeleton";
 import { useContext } from "react";
 import "./CartItem.css";
 
-const CartItem = ({ name, price, imageId, id }) => {
+const CartItem = ({ name, price, imageId, id,defaultPrice }) => {
     const {darkModeEnable} = useContext(DarkModeContext);
   return (
     <div className="cart-item">
       <div className="cart-item-sec">
         <p className="cart-item-name">{name}</p>
-        <p className="cart-item-price">₹{price === NaN ? 1110 : price / 100}</p>
+        <p className="cart-item-price">₹{price===undefined ? defaultPrice/100 : price / 100}</p>
       </div>
       <div className="cart-item-img">
         {imageId !== undefined ? (
-          <img src={IMG_CDN_URL + imageId} alt="" />
+          <img src={IMG_CDN_URL + imageId} alt="" />    
         ) : (
           <Skeleton
             variant="rounded"
@@ -27,7 +27,7 @@ const CartItem = ({ name, price, imageId, id }) => {
         )}
 
         {/* {id} */}
-        <div className={`del-icon ${darkModeEnable?"bg-white":""}`}>
+        <div className={`del-icon ${darkModeEnable?"bg-white":"bg-dark"}`}>
           <DeleteIcon
             className="delete-item"
             sx={{
