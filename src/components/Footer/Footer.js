@@ -9,7 +9,7 @@ const Footer = () => {
       <div className={`footer ${darkModeEnable?'darkFooter':'lightFooter'}`}>
         
         <div className="footer-element">
-          <h2>Swiggy</h2>
+          <h2>SwiGer</h2>
           <p>2023 Swiger Pvt. Ltd</p>
         </div>
         <div className="footer-element">

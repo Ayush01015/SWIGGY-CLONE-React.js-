@@ -59,6 +59,9 @@
 }
 
 @media(min-width:320px){
+    .cart{
+        margin-top: 6rem;
+    }
     .items-count{
         font-size: 1.5rem;
     }
