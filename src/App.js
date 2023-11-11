@@ -1,4 +1,4 @@
-import React, { lazy, Suspense,useContext,useState } from "react";
+import React, { lazy, Suspense, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header/Header.js";
 import Body from "./components/Body";
@@ -14,8 +14,9 @@ import RestaurantsMenu from "./components/RestaurantsMenu/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
 import { Provider } from "react-redux";
 import store from "./Utils/store.js";
-import DarkModeContextProvider from "../src/Context/DarkModeContext/DarkModeContextProvider.js"
+import DarkModeContextProvider from "../src/Context/DarkModeContext/DarkModeContextProvider.js";
 import DarkModeContext from "./Context/DarkModeContext/DarkModeContext.js";
+import CartContextProvider from "./Context/CartContext/CartContextProvider.js";
 /*
 Chunking
 code splitting
@@ -29,12 +30,14 @@ const Instamart = lazy(() => import("./components/Cart/Cart.js")); //it's a prom
 
 const SwiGker = () => {
   return (
-    <DarkModeContextProvider>
-      <Header />
-      {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
+    <CartContextProvider>
+      <DarkModeContextProvider>
+        <Header />
+        {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
         <Outlet />
-      <Footer />
-    </DarkModeContextProvider>
+        <Footer />
+      </DarkModeContextProvider>
+    </CartContextProvider>
   );
 };
 
@@ -65,8 +68,8 @@ const appRouter = createBrowserRouter([
         element: <RestaurantsMenu />,
       },
       {
-        // path: "/cart",
-        // element: <Cart/>,
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
@@ -74,4 +77,3 @@ const appRouter = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
-
