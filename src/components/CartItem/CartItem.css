@@ -17,18 +17,44 @@
 }
 .cart-item-img{
   width: 40%;
+  /* height: 100%; */
   position: relative;
-  /* border: 2px solid gold; */
+  /* border: 1px solid gold; */
 }
 .cart-item-img > img{
   width: 100%;
-  filter: grayscale(1%); /* Adjust the percentage to control the level of desaturation */
-  opacity: 0.7;
+  border-radius: 6px;
 }
 
 .delete-item{
-  position: absolute;
+  /* position: absolute;
   left: 50%;
-  top: 70%;
+  top: 70%; */
+
+  /* transform: translateX(-50%); */
+  color: #C70039;
+  cursor: pointer;
+}
+.del-icon{
+  /* border: 1px solid red; */
+  padding: 0.5rem;
+  background-color: black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
   transform: translateX(-50%);
+}
+
+.bg-white{
+  background-color: white;
+}
+
+.bg-dark{
+  background-color: black;
 }
