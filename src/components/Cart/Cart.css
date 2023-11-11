@@ -4,7 +4,6 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    /* border: 2px solid red; */
 }
 .empty-cart{
     width: 100%;
@@ -59,7 +58,7 @@
 }
 
 @media(min-width:320px){
-    .cart{
+    .empty-cart{
         margin-top: 6rem;
     }
     .items-count{
