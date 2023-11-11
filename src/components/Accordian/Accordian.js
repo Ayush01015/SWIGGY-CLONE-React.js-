@@ -4,7 +4,8 @@ import Skeleton from "@mui/material/Skeleton";
 import { addItem } from "../../Utils/Slices/CartSlice";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-
+import { useContext } from "react";
+import CartContext from "../../Context/CartContext/CartContext";
 
 import "./Accordian.css";
 function truncateText(text) {
@@ -21,9 +22,7 @@ function truncateText(text) {
 }
 
 
-const addFoodItem = (item) => {
-  dispatch(addItem(item));
-};
+
 
 const Section = ({
   title,
@@ -36,6 +35,7 @@ const Section = ({
   setCategory,
 }) => {
   const [isVis, setIsVis] = useState(false);
+  const {addItem} = useContext(CartContext);
   const handleShow = () => {
     setIsVis(!isVis);
   };
@@ -97,7 +97,7 @@ const Section = ({
                   )}
                   <button
                     className="add-item-btn-2"
-                    // onClick={()=>addFoodItem(item)}
+                    onClick={() => addItem(item)}
                   >
                     ADD
                   </button>

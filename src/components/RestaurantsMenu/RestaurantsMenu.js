@@ -11,6 +11,9 @@ import { addItem } from "../../Utils/Slices/CartSlice";
 import { useDispatch } from "react-redux";
 import Accordian from "../Accordian/Accordian";
 import Skeleton from "@mui/material/Skeleton";
+import { useContext } from "react";
+import CartContext from "../../Context/CartContext/CartContext";
+
 
 const theme = createTheme({
   palette: {
@@ -21,7 +24,7 @@ const theme = createTheme({
 
 const RestaurantsMenu = () => {
   const { id } = useParams();
-
+  const {addItem} = useContext(CartContext);
   const restaurant = useRestaurants(id);
   const restaunrantItem =
     restaurant?.cards?.[3]?.groupedCard?.cardGroupMap?.REGULAR;
@@ -177,7 +180,7 @@ const RestaurantsMenu = () => {
                           )}
                           <button
                             className="add-item-btn-2"
-                            // onClick={() => addFoodItem(item)}
+                            onClick={() => addItem(item)}
                           >
                             ADD
                           </button>

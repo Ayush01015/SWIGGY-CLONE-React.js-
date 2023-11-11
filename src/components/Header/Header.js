@@ -6,8 +6,11 @@ import "./Header.css";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeContext from "../../Context/DarkModeContext/DarkModeContext";
+import CartContext from "../../Context/CartContext/CartContext.js";
+
 
 const Header = () => {
+  const {cartItemsCount} = useContext(CartContext);
   const { darkMode, darkModeEnable, setDarkModeEnable } =
     useContext(DarkModeContext);
   const [log, setLog] = useState(true);
@@ -17,6 +20,7 @@ const Header = () => {
     setIsNavbarActive(!isNavbarActive);
   };
   const body = document.body;
+
   useEffect(() => {
     darkModeEnable
       ? ((body.style.backgroundColor = "#141A1F"),
@@ -38,11 +42,7 @@ const Header = () => {
         color: `${darkMode.headerColorLight}`,
       };
 
-  // const cartItems = useSelector(store => store.cart.items);
-  // {console.log("CART: ", cartItems);}
-
-  // const {user} = useContext(UserContext);
-  // {console.log("user",user)}
+  
 
   const handleDarkMode = () => {
     setDarkModeEnable(!darkModeEnable);
@@ -100,7 +100,8 @@ const Header = () => {
             </li>
             <li>
               <Link className="navbar-link" to="/cart">
-                {/* Cart - {cartItems.length} */}
+                {`Cart - ${cartItemsCount}`}
+                {console.log("cartItems.length",cartItemsCount)}
               </Link>
             </li>
 
