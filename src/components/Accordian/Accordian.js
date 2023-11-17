@@ -6,8 +6,24 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { useContext } from "react";
 import CartContext from "../../Context/CartContext/CartContext";
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./Accordian.css";
+
+const customBreakpoints = {
+  smm: 320, // example custom breakpoint for small screens
+  md: 768, // example custom breakpoint for medium screens
+  lg: 1024, // example custom breakpoint for large screens
+};
+
+// Create a theme with your custom breakpoints
+const theme = createTheme({
+  breakpoints: {
+    values: {
+      ...customBreakpoints,
+    },
+  },
+});
+
 function truncateText(text) {
   if (text) {
     const words = text.split(" ");
@@ -21,9 +37,6 @@ function truncateText(text) {
   return ""; // Return an empty string if text is undefined
 }
 
-
-
-
 const Section = ({
   title,
   description,
@@ -35,7 +48,7 @@ const Section = ({
   setCategory,
 }) => {
   const [isVis, setIsVis] = useState(false);
-  const {addItem} = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
   const handleShow = () => {
     setIsVis(!isVis);
   };
@@ -58,7 +71,7 @@ const Section = ({
       {!isVis && (
         <div className="menu-section-container">
           {Object.keys(data).map((key, i) => (
-            <div key={i}>
+            <div key={i} className="menu-con">
               {setCategory(data[key]?.card?.info?.category)}
               {/* {console.log(data[key]?.card?.info?.category)} */}
               <div className="menu-section">
@@ -91,8 +104,12 @@ const Section = ({
                   ) : (
                     <Skeleton
                       variant="rounded"
-                      height="17.5vh"
-                      sx={{ borderRadius: "10px" }}
+                      height="15vh"
+                      width="21vh"
+                      sx={{
+                        borderRadius: "10px",
+                        margin: "0 auto",
+                      }}
                     />
                   )}
                   <button
@@ -113,6 +130,7 @@ const Section = ({
 const Accordian = (data) => {
   const [visibleSection, setVisibleSection] = useState("");
   const [category, setCategory] = useState("");
+  // console.log("DATA",data);
   return (
     <div>
       <Section
@@ -136,13 +154,7 @@ export default Accordian;
 /**
  * lifting the state up
  *    taking power(control of state) from child(Section) to parent(Accordian)
- *
- * 
- * 
- * 
- * 
- * 
- *     <div className="">
+    <div className="">
       <h3 className="">{title}</h3>
       {!isVisible && (
         <button
@@ -164,8 +176,3 @@ export default Accordian;
       )}
       {isVisible && <p>{description}</p>}
  */
-//   {console.log("acc", i + 1, key, data[key].card.info.name)}
-//   {console.log(
-//     "acc",
-//     data[key]?.card?.info?.ratings?.aggregatedRating?.rating
-//   )}

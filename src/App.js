@@ -17,6 +17,7 @@ import store from "./Utils/store.js";
 import DarkModeContextProvider from "../src/Context/DarkModeContext/DarkModeContextProvider.js";
 import DarkModeContext from "./Context/DarkModeContext/DarkModeContext.js";
 import CartContextProvider from "./Context/CartContext/CartContextProvider.js";
+import ScrollToTop from "../src/components/ScrollToTop/ScrollToTop.js"
 /*
 Chunking
 code splitting
@@ -32,6 +33,7 @@ const SwiGker = () => {
   return (
     <CartContextProvider>
       <DarkModeContextProvider>
+      <ScrollToTop/>
         <Header />
         {/* {every Children Will come at the place of Outlet when the Link is clicked} */}
         <Outlet />

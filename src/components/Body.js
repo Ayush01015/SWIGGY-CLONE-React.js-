@@ -7,7 +7,6 @@ import useOnline from "../Utils/useOnline";
 import Search from "./Search/Search";
 import Locator from "./Locator/Locator";
 import DarkModeContext from "../Context/DarkModeContext/DarkModeContext";
-
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
@@ -19,7 +18,6 @@ const Body = () => {
   const [index, setIndex] = useState(0);
   const typingSpeed = 70; // Adjust the typing speed (in milliseconds)
   const fullText = `Feast on Exquisite Cuisine`; // The text you want to display with the typing effect
-
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,55 +38,22 @@ const Body = () => {
       `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
     );
     const json = await data.json();
-    let resData;
-    console.log("Json: ", json);
-    if (
+    let resData =
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants === undefined
-    ) {
-      setAllRestaurants(
-        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      ); //Setting data in restaurants
-      setfilteredRestaurants(
-        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      ); //Setting data in filtered restaurants for search.
-    } else  if (
+        ?.restaurants ||
       json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants === undefined
-    ) {
-      const arr = [...json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants,...json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants]
-      console.log("Combined Data",arr);
-      setAllRestaurants(
-        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      ); //Setting data in restaurants
-      setfilteredRestaurants(
-        json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
-    }else{
-      const arr = [...json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants,...json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants]
-      console.log("Combined Data",arr);
-      setAllRestaurants(
-        arr
-      ); //Setting data in restaurants
-      setfilteredRestaurants(
-        arr
-      );
-    }
+        ?.restaurants ||
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    console.log("Body Json: ", json);
+    console.log("Body Cards", resData);
+    setAllRestaurants(resData); //Setting data in restaurants
+    setfilteredRestaurants(resData);
   }
 
   useEffect(() => {
     getRestaurants();
   }, [latitude, longitude]);
-
-
 
   const isOnline = useOnline();
 
@@ -103,7 +68,7 @@ const Body = () => {
           alignItems: "center",
           marginTop: "10rem",
           marginBottom: "10rem",
-          height:"100%",
+          height: "100%",
         }}
         className="no-restaurant"
       >
