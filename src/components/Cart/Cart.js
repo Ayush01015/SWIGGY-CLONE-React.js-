@@ -4,11 +4,23 @@ import CartItem from "../CartItem/CartItem";
 import { useContext } from "react";
 import CartContext from "../../Context/CartContext/CartContext";
 import Img from "../../assets/img/cart-zero-.png"
+import {useSelector,useDispatch} from "react-redux"
+import { clearCart } from "../../Utils/Slices/CartSlice";
 
 
 const Cart = () => {
-  const { cartItems,totalCartPrice } = useContext(CartContext);
-  
+  // const { cartItems,totalCartPrice } = useContext(CartContext);
+  const cartItems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+
+  const totalCartPrice = cartItems.reduce((total,item)=>{
+    return total+(item?.card?.info?.price === undefined ? item?.card?.info?.defaultPrice:item?.card?.info?.price);
+  },0) 
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  }
+
   return (
     <div className="cart">
       {cartItems?.length === 0 ? (
@@ -43,7 +55,9 @@ const Cart = () => {
               </div>
               <div>
                 <button className="cart-btn">Pay</button>
-                <button className="cart-btn">
+                <button className="cart-btn"
+                  onClick={()=>handleClearCart()}
+                >
                   Clear
                 </button>
               </div>

@@ -6,11 +6,15 @@ import "./Header.css";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeContext from "../../Context/DarkModeContext/DarkModeContext";
-import CartContext from "../../Context/CartContext/CartContext.js";
+import { useSelector } from "react-redux/es/hooks/useSelector";
+
 
 
 const Header = () => {
-  const {cartItemsCount} = useContext(CartContext);
+  //Subscribing to Store
+  const cartItems = useSelector(store => store.cart.items)
+  console.log("cart",cartItems);
+  
   const { darkMode, darkModeEnable, setDarkModeEnable } =
     useContext(DarkModeContext);
   const [log, setLog] = useState(true);
@@ -100,8 +104,7 @@ const Header = () => {
             </li>
             <li>
               <Link className="navbar-link" to="/cart">
-                {`Cart - ${cartItemsCount}`}
-                {console.log("cartItems.length",cartItemsCount)}
+                {`Cart - ${cartItems.length}`}
               </Link>
             </li>
 

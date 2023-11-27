@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { IMG_CDN_URL } from "../../constants";
 import Skeleton from "@mui/material/Skeleton";
-import { addItem } from "../../Utils/Slices/CartSlice";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import { useContext } from "react";
-import CartContext from "../../Context/CartContext/CartContext";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../Utils/Slices/CartSlice";
 import "./Accordian.css";
 
 const customBreakpoints = {
@@ -48,10 +47,16 @@ const Section = ({
   setCategory,
 }) => {
   const [isVis, setIsVis] = useState(false);
-  const { addItem } = useContext(CartContext);
+  // const { addItem } = useContext(CartContext);
   const handleShow = () => {
     setIsVis(!isVis);
   };
+  const cartItems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <>
       {category !== "" ? (
@@ -114,7 +119,7 @@ const Section = ({
                   )}
                   <button
                     className="add-item-btn-2"
-                    onClick={() => addItem(data[key])}
+                    onClick={() => handleAddItem(data[key])}
                   >
                     ADD
                   </button>

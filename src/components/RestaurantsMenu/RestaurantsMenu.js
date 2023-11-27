@@ -7,12 +7,10 @@ import StarIcon from "@mui/icons-material/Star";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { yellow, amber } from "@mui/material/colors";
 import "./RestaurantsMenu.css";
-import { addItem } from "../../Utils/Slices/CartSlice";
-import { useDispatch } from "react-redux";
 import Accordian from "../Accordian/Accordian";
 import Skeleton from "@mui/material/Skeleton";
 import { useContext } from "react";
-import CartContext from "../../Context/CartContext/CartContext";
+import { useDispatch } from "react-redux";
 
 const theme = createTheme({
   palette: {
@@ -23,7 +21,7 @@ const theme = createTheme({
 
 const RestaurantsMenu = () => {
   const { id } = useParams();
-  const { addItem } = useContext(CartContext);
+  
   const restaurant = useRestaurants(id);
   const restaunrantItem =
     restaurant?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR ||
