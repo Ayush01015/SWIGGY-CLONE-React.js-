@@ -37,9 +37,7 @@ const Cart = () => {
                 return (
                   <CartItem
                     {...item?.card?.info}
-                    // key={item?.card?.info?.id}
-                    key={i}
-                    id={i}
+                    key={item?.card?.info?.id}
                   />
                 );
               })}
