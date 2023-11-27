@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
-import TextField from "@mui/material/TextField";
+import TextField from '@mui/material/TextField';
 import Autocomplete from "@mui/material/Autocomplete";
 import Paper from "@mui/material/Paper";
 import DarkModeContext from "../../Context/DarkModeContext/DarkModeContext";
+import { CSSTransition } from 'react-transition-group';
 import "./Locator.css";
 
 const locations = [
@@ -90,7 +91,7 @@ const Locator = ({
       setLoc(value.label);
     }
   };
-
+  
   // console.log("-->",latitude,"-->",longitude);
   return (
       <Autocomplete
@@ -108,7 +109,7 @@ const Locator = ({
         options={locations}
         getOptionLabel={(option) => option.label}
         value={selectedLocation}
-        onChange={handleLocationChange}
+        onChange={()=>handleLocationChange}
         // sx={{width:280, border:"none"}}
         renderInput={(params) => (
           <TextField {...params} label="Select Location" variant="outlined" />
