@@ -20,7 +20,7 @@ import CartContextProvider from "./Context/CartContext/CartContextProvider.js";
 import ScrollToTop from "../src/components/ScrollToTop/ScrollToTop.js"
 /*
 Chunking
-code splitting
+code splitting 
 dynamic bundling
 lazy loading
 on demand loading
