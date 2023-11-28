@@ -71,7 +71,8 @@ const locations = [
     },
   },
 ];
-console.log(locations);
+// console.log(locations);
+
 const Locator = ({
   latitude,
   longitude,
