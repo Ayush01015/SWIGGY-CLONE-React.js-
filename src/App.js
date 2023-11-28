@@ -13,14 +13,14 @@ import Deals from "./components/Deals";
 import RestaurantsMenu from "./components/RestaurantsMenu/RestaurantsMenu";
 import ShimmerCard from "./components/ShimmerCard";
 import { Provider } from "react-redux";
-import store from "./Utils/store.js";
+import appStore from "./Utils/appStore.js";
 import DarkModeContextProvider from "../src/Context/DarkModeContext/DarkModeContextProvider.js";
 import DarkModeContext from "./Context/DarkModeContext/DarkModeContext.js";
 import CartContextProvider from "./Context/CartContext/CartContextProvider.js";
 import ScrollToTop from "../src/components/ScrollToTop/ScrollToTop.js"
 /*
 Chunking
-code splitting
+code splitting 
 dynamic bundling
 lazy loading
 on demand loading
@@ -31,7 +31,7 @@ const Instamart = lazy(() => import("./components/Cart/Cart.js")); //it's a prom
 
 const SwiGker = () => {
   return (
-    <CartContextProvider>
+    <Provider store={appStore}>
       <DarkModeContextProvider>
       <ScrollToTop/>
         <Header />
@@ -39,7 +39,7 @@ const SwiGker = () => {
         <Outlet />
         <Footer />
       </DarkModeContextProvider>
-    </CartContextProvider>
+    </Provider>
   );
 };
 
