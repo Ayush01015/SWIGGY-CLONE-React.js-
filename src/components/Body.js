@@ -7,6 +7,7 @@ import useOnline from "../Utils/useOnline";
 import Search from "./Search/Search";
 import Locator from "./Locator/Locator";
 import DarkModeContext from "../Context/DarkModeContext/DarkModeContext";
+
 const Body = () => {
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
@@ -19,23 +20,25 @@ const Body = () => {
   const typingSpeed = 70; // Adjust the typing speed (in milliseconds)
   const fullText = `Feast on Exquisite Cuisine`; // The text you want to display with the typing effect
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (index < fullText.length) {
-        setText((prevText) => prevText + fullText.charAt(index));
-        setIndex((prevIndex) => prevIndex + 1);
-      }
-    }, typingSpeed);
 
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [index, fullText]);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (index < fullText.length) {
+  //       setText((prevText) => prevText + fullText.charAt(index));
+  //       setIndex((prevIndex) => prevIndex + 1);
+  //     }
+  //   }, typingSpeed);
+
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [fullText]);
 
   async function getRestaurants() {
     //fetching data fromm API
     const data = await fetch(
-      `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`
+      `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+      // https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4792355&lng=77.5142916&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
     );
     const json = await data.json();
 
@@ -108,7 +111,7 @@ const Body = () => {
       </div>
       <div className="catch-phrase text-gradient tx-center">
         <h1 className="res-location">Restaurants in {loc}</h1>
-        <h1 className="typing-effect">{text}</h1>
+        {/* <h1 className="typing-effect">{text}</h1> */}
       </div>
       {/* <Banner /> */}
       <div className="body">
