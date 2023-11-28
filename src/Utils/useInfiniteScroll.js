@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const useInfiniteScroll = (query, pageNumber) => {
-  
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [hasMore, setHasMore] = useState(false);
   const [offset, setOffset] = useState(15); 
   const [moreRestaurants, setMoreRestaurants] = useState([]);
-
 
   const fetchData = async () => {
     
@@ -50,7 +49,7 @@ const useInfiniteScroll = (query, pageNumber) => {
       setMoreRestaurants((prevData) => [...prevData, ...newData]);
       setHasMore(newData.length > 0);
 
-      setOffset((prevOffset) => prevOffset + 15);
+      setOffset((prevOffset) => prevOffset + 1);
 
     } catch (error) {
       setError(true);

@@ -49,6 +49,14 @@ body {
   z-index: 1;
 }
 
+.body-component{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
 @media (min-width: 525px) {
   .body-header {
     flex-direction: row;
@@ -80,7 +88,7 @@ body {
   transform: scale(0.85);
 }
 .disScale:hover{
-  transform: scale(1);
+  transform: scale(0.8);
 }
 .card {
   border: 1px solid #d5d5d5;

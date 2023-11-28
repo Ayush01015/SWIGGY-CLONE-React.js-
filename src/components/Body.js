@@ -6,13 +6,10 @@ import { Link } from "react-router-dom";
 import useOnline from "../Utils/useOnline";
 import Search from "./Search/Search";
 import Locator from "./Locator/Locator";
-import DarkModeContext from "../Context/DarkModeContext/DarkModeContext";
 import useInfiniteScroll from "../Utils/useInfiniteScroll";
 import { v4 as uuidv4 } from "uuid";
-import { all } from "axios";
 
 const Body = () => {
-  // console.log("uuid",uuidv4())
   const [searchInput, setSearchInput] = useState(""); //for searching input in seach input box
   const [filteredRestaurants, setfilteredRestaurants] = useState([]); // for searched data on search button
   const [allRestaurants, setAllRestaurants] = useState([]); // for rendering all data from API.
@@ -78,7 +75,7 @@ const Body = () => {
 
     console.log("Body Json: ", json);
     console.log("Body Cards", resData);
-    setAllRestaurants(resData); 
+    setAllRestaurants(resData);
     setfilteredRestaurants(resData);
   }
 
@@ -130,9 +127,8 @@ const Body = () => {
           setLoc={setLoc}
         />
       </div>
-    ); //early return
+    );
 
-  // if(filteredRestaurants.length === 0) return <h1>Not Found</h1>
   return (
     <div>
       <div className="body-header">
@@ -164,28 +160,31 @@ const Body = () => {
           <h1>No Restaurant Found</h1>
         ) : (
           <>
-            {filteredRestaurants.map((restaurant, idx) => {
-              const currentIndex = idx + 1;
-              const isLastElement = currentIndex === filteredRestaurants.length;
+            <div  className="body-component">
+              {filteredRestaurants.map((restaurant, idx) => {
+                const currentIndex = idx + 1;
+                const isLastElement =
+                  currentIndex === filteredRestaurants.length;
 
-              if (isLastElement) {
-                return (
-                  <div ref={lastElementRef} key={uuidv4()}>
-                    <Link to={"restaurants/" + restaurant?.info?.id}>
-                      <Card {...restaurant.info} key={index} />
-                    </Link>
-                  </div>
-                );
-              } else {
-                return (
-                  <div key={uuidv4()}>
-                    <Link to={"restaurants/" + restaurant?.info?.id}>
-                      <Card {...restaurant.info} />
-                    </Link>
-                  </div>
-                );
-              }
-            })}
+                if (isLastElement) {
+                  return (
+                    <div ref={lastElementRef} key={uuidv4()}>
+                      <Link to={"restaurants/" + restaurant?.info?.id}>
+                        <Card {...restaurant.info} key={index} />
+                      </Link>
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div key={uuidv4()}>
+                      <Link to={"restaurants/" + restaurant?.info?.id}>
+                        <Card {...restaurant.info} />
+                      </Link>
+                    </div>
+                  );
+                }
+              })}
+            </div>
             <div>
               <ShimmerUI count={3} />
             </div>
@@ -197,28 +196,4 @@ const Body = () => {
 };
 
 export default Body;
-{
-  /* <div
-style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-> */
-}
-{
-  /* {moreRestaurants.map((restaurant, index) => {
-  if (moreRestaurants.length === index + 1)
-    return (
-      <div ref={lastElementRef}>
-        <Card {...restaurant.info} key={index} />;
-      </div>
-    );
-  else
-    return (
-      <div>
-        <Card {...restaurant.info} key={index} />;
-      </div>
-    );
-})}
-</div>
-<div>
-<ShimmerUI count={3}/>
-</div> */
-}
+

@@ -16,27 +16,27 @@ const Deals = () => {
 
   // console.log("loading, error, hasMore, data", loading, error, hasMore, data);
 
-  const observer = useRef();
-  const lastElementRef = useCallback(
-    (node) => {
-      if (loading) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPageNumber((prevPageNumber) => prevPageNumber + 1);
-          console.log("Page Number", pageNumber);
-        }
-      });
-      if (node) observer.current.observe(node);
-    },
-    [loading, hasMore]
-  );
+  // const observer = useRef();
+  // const lastElementRef = useCallback(
+  //   (node) => {
+  //     if (loading) return;
+  //     if (observer.current) observer.current.disconnect();
+  //     observer.current = new IntersectionObserver((entries) => {
+  //       if (entries[0].isIntersecting && hasMore) {
+  //         setPageNumber((prevPageNumber) => prevPageNumber + 1);
+  //         console.log("Page Number", pageNumber);
+  //       }
+  //     });
+  //     if (node) observer.current.observe(node);
+  //   },
+  //   [loading, hasMore]
+  // );
 
   return (
-    <>
+    <div style={{height:"100vh"}}>
       <Banner />
       {/* {console.log("len: ", moreRestaurants.length)} */}
-      <div
+      {/* <div
         style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       >
         {moreRestaurants.map((restaurant, index) => {
@@ -57,8 +57,8 @@ const Deals = () => {
       <div>
         <ShimmerUI count={3}/>
       </div>
-      <div>{error}</div>
-    </>
+      <div>{error}</div> */}
+    </div>
   );
 };
 
