@@ -71,7 +71,7 @@ const locations = [
     },
   },
 ];
-// console.log(locations);
+
 
 const Locator = ({
   latitude,
@@ -84,7 +84,6 @@ const Locator = ({
   const { darkModeEnable } = useContext(DarkModeContext);
 
   const handleLocationChange = (value) => {
-    console.log("value",value)
     if (value !== null) {
       const { latitude, longitude } = value.coordinates;
       setSelectedLocation(value);

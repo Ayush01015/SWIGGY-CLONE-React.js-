@@ -1,16 +1,9 @@
 import ShimmerCard from "./ShimmerCard";
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-const ShimmerUI = () => {
+const ShimmerUI = ({count}) => {
   return (
     <>
-      {/* <div className="search-component" style={{
-        // border:"3px solid red",
-        display:"flex",
-      }}>
-        <Skeleton variant="rectangular" width={300} height={40}/>
-        <Skeleton sx={{marginLeft:"50px"}} variant="rectangular" width={100} height={36}/>
-      </div> */}
       <div
         style={{
           display: "flex",
@@ -19,7 +12,7 @@ const ShimmerUI = () => {
           justifyContent: "center",
         }}
       >
-        {Array(15)
+        {Array(count)
           .fill("")
           .map((e, i) => (
             <ShimmerCard key={i} />
