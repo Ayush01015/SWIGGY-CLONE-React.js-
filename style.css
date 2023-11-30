@@ -28,11 +28,14 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 4rem;
   overflow-x: hidden;
   width: 100%;
   height: 100%;
   /* border: 1px solid red; */
+  margin: 0 auto;
+  margin-bottom: 4rem;
+
+  
 }
 
 .body-header {
@@ -44,6 +47,14 @@ body {
   margin-top: 5rem;
   margin-bottom: 1rem;
   z-index: 1;
+}
+
+.body-component{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 525px) {
@@ -63,20 +74,21 @@ body {
 }
 
 .card-component {
-  margin: 15px;
+  /* margin: 15px; */
   width: 100%;
   width: 245px;
   font-family: "Montserrat", sans-serif;
   transition: all 0.4s ease;
+  transform: scale(0.8);
   /* border: 1px solid red; */
 }
 
 .card-component:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transform: scale(1.06);
+  transform: scale(0.85);
 }
 .disScale:hover{
-  transform: scale(1);
+  transform: scale(0.8);
 }
 .card {
   border: 1px solid #d5d5d5;
