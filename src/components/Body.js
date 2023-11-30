@@ -1,5 +1,5 @@
 import Card from "../components/Card";
-import { useState, useEffect, useContext, useRef, useCallback } from "react";
+import { useState, useEffect, useContext, useRef, useCallback, lazy } from "react";
 import { SWIGGY_PUBLIC_API } from "../constants";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -38,7 +38,9 @@ const Body = () => {
   // if(filteredRestaurants.length > 100) return <>FUCKED</>;
   const { loading, error, hasMore, moreRestaurants } = useInfiniteScroll(
     query,
-    pageNumber
+    pageNumber,
+    latitude,
+    longitude
   );
 
   const observer = useRef();
@@ -74,7 +76,7 @@ const Body = () => {
         ?.restaurants;
 
     console.log("Body Json: ", json);
-    console.log("Body Cards", resData);
+    console.log("Body Cards", resData); 
     setAllRestaurants(resData);
     setfilteredRestaurants(resData);
   }
@@ -97,11 +99,9 @@ const Body = () => {
       }
     };
     updateRestaurants();
-  }, [moreRestaurants]);
+  }, [moreRestaurants,latitude, longitude]);
 
   const isOnline = useOnline();
-  console.log("allRES", allRestaurants);
-  console.log("filteredRes", filteredRestaurants);
   if (!isOnline) return <h1>Check Your Internet Connection</h1>;
 
   if (!allRestaurants)
@@ -150,9 +150,6 @@ const Body = () => {
         <h1 className="res-location">Restaurants in {loc}</h1>
         {/* <h1 className="typing-effect">{text}</h1> */}
       </div>
-      {console.log("More len: ", moreRestaurants.length)}
-      {console.log("filter len: ", filteredRestaurants.length)}
-      {console.log("all len: ", allRestaurants.length)}
       <div className="body">
         {allRestaurants.length === 0 ? (
           <ShimmerUI count={12} />
@@ -186,7 +183,7 @@ const Body = () => {
               })}
             </div>
             <div>
-              <ShimmerUI count={3} />
+              <ShimmerUI count={6} />
             </div>
           </>
         )}

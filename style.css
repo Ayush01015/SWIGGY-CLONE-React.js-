@@ -52,9 +52,9 @@ body {
 .body-component{
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  
 }
 
 @media (min-width: 525px) {

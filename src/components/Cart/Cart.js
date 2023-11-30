@@ -6,7 +6,7 @@ import CartContext from "../../Context/CartContext/CartContext";
 import Img from "../../assets/img/cart-zero-.png"
 import {useSelector,useDispatch} from "react-redux"
 import { clearCart } from "../../Utils/Slices/CartSlice";
-
+import { v4 as uuidv4 } from "uuid";
 
 const Cart = () => {
   // const { cartItems,totalCartPrice } = useContext(CartContext);
@@ -37,7 +37,7 @@ const Cart = () => {
                 return (
                   <CartItem
                     {...item?.card?.info}
-                    key={item?.card?.info?.id}
+                    key={uuidv4()}
                   />
                 );
               })}
