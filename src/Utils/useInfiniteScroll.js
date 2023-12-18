@@ -9,12 +9,12 @@ const useInfiniteScroll = (query, pageNumber,latitude,longitude) => {
   const [hasMore, setHasMore] = useState(false);
   const [offset, setOffset] = useState(15); 
   const [moreRestaurants, setMoreRestaurants] = useState([]);
-
   const fetchData = async () => {
+    console.log("SCROLL FILE ::: lat,long",latitude,longitude)
     
     setLoading(true);
     const url =
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/update";
+      "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fupdate";
     const postData = {
       lat: latitude,
       lng: longitude,
@@ -52,7 +52,7 @@ const useInfiniteScroll = (query, pageNumber,latitude,longitude) => {
       setOffset((prevOffset) => prevOffset + 1);
 
     } catch (error) {
-      setError(true);s
+      setError(true);
     } finally {
       setLoading(false);
     }
