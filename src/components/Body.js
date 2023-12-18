@@ -1,5 +1,12 @@
 import Card from "../components/Card";
-import { useState, useEffect, useContext, useRef, useCallback, lazy } from "react";
+import {
+  useState,
+  useEffect,
+  useContext,
+  useRef,
+  useCallback,
+  lazy,
+} from "react";
 import { SWIGGY_PUBLIC_API } from "../constants";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
@@ -16,12 +23,11 @@ const Body = () => {
   const [latitude, setLatitude] = useState(28.620948093201154);
   const [longitude, setLongitude] = useState(77.05699993744116);
   const [loc, setLoc] = useState("Delhi");
-  const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [query, setQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const typingSpeed = 70; // Adjust the typing speed (in milliseconds)
-  const fullText = `Feast on Exquisite Cuisine`; // The text you want to display with the typing effect
+  const text = `Feast on Exquisite Cuisine`; // The text you want to display with the typing effect
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -35,7 +41,10 @@ const Body = () => {
   //     clearTimeout(timer);
   //   };
   // }, [fullText]);
-  // if(filteredRestaurants.length > 100) return <>FUCKED</>;
+
+  const heading = document.querySelector(".typing-effect");
+
+  // textAnimation(); 
   const { loading, error, hasMore, moreRestaurants } = useInfiniteScroll(
     query,
     pageNumber,
@@ -61,7 +70,7 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+      `${SWIGGY_PUBLIC_API}${latitude}%26lng%3D${longitude}%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING`
     );
     const json = await data.json();
 
@@ -76,7 +85,7 @@ const Body = () => {
         ?.restaurants;
 
     console.log("Body Json: ", json);
-    console.log("Body Cards", resData); 
+    console.log("Body Cards", resData);
     setAllRestaurants(resData);
     setfilteredRestaurants(resData);
   }
@@ -99,7 +108,7 @@ const Body = () => {
       }
     };
     updateRestaurants();
-  }, [moreRestaurants,latitude, longitude]);
+  }, [moreRestaurants, latitude, longitude]);
 
   const isOnline = useOnline();
   if (!isOnline) return <h1>Check Your Internet Connection</h1>;
@@ -148,7 +157,7 @@ const Body = () => {
       </div>
       <div className="catch-phrase text-gradient tx-center">
         <h1 className="res-location">Restaurants in {loc}</h1>
-        {/* <h1 className="typing-effect">{text}</h1> */}
+        <h1 className="typing-effect"></h1>
       </div>
       <div className="body">
         {allRestaurants.length === 0 ? (
@@ -157,7 +166,7 @@ const Body = () => {
           <h1>No Restaurant Found</h1>
         ) : (
           <>
-            <div  className="body-component">
+            <div className="body-component">
               {filteredRestaurants.map((restaurant, idx) => {
                 const currentIndex = idx + 1;
                 const isLastElement =
@@ -193,4 +202,3 @@ const Body = () => {
 };
 
 export default Body;
-
