@@ -56,7 +56,7 @@ const Section = ({
   const handleAddItem = (item) => {
     dispatch(addItem(item));
   };
-
+  console.log("data //",data);
   return (
     <>
       {category !== "" ? (
@@ -78,11 +78,9 @@ const Section = ({
           {Object.keys(data).map((key, i) => (
             <div key={i} className="menu-con">
               {setCategory(data[key]?.card?.info?.category)}
-              {/* {console.log(data[key]?.card?.info?.category)} */}
               <div className="menu-section">
                 <div className="menu-section-info">
                   <p>{data[key]?.card?.info?.name}</p>
-                  {/* {console.log(data[key]?.card?.info?.price / 100)} */}
                   <p>
                     ₹
                     {!isNaN(data[key]?.card?.info?.price)
@@ -135,7 +133,7 @@ const Section = ({
 const Accordian = (data) => {
   const [visibleSection, setVisibleSection] = useState("");
   const [category, setCategory] = useState("");
-  // console.log("DATA",data);
+
   return (
     <div>
       <Section
@@ -156,28 +154,3 @@ const Accordian = (data) => {
 
 export default Accordian;
 
-/**
- * lifting the state up
- *    taking power(control of state) from child(Section) to parent(Accordian)
-    <div className="">
-      <h3 className="">{title}</h3>
-      {!isVisible && (
-        <button
-          className=""
-          onClick={() => setIsVisible()}
-        >
-          Show
-        </button>
-      )}
-      {isVisible && (
-        <button
-          className=""
-          onClick={() =>
-            setVisibleSection("")
-          }
-        >
-          Hide
-        </button>
-      )}
-      {isVisible && <p>{description}</p>}
- */
