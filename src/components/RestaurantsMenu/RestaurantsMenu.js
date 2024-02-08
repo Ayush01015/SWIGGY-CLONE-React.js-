@@ -36,7 +36,8 @@ const RestaurantsMenu = () => {
     restaurant?.cards?.[2]?.card?.card?.info ||
     restaurant?.cards?.[5]?.card?.card?.info;
 
-  // console.log("RestaurantsMenu JSON", restaurantItem);
+  console.log("RestaurantsMenu JSON", restaurantItem?.cards);
+  console.log("RestaurantsMenu JSON", Array.isArray(restaurantItem));
 
   return !restaurant ? (
     <ShimmerMenu />
@@ -84,8 +85,8 @@ const RestaurantsMenu = () => {
       <div className="menu">
         <span className="menu-span">Menu</span>
         <div className="menu-recommended-items">
-          {Object.values(restaurantItem?.cards).map((item, i) => (
-            <Accordian {...item?.card?.card?.itemCards} key={i} />
+          {Object.values(restaurantItem?.cards).slice(1).map((item, i) => (
+            <Accordian {...(item?.card?.card?.itemCards || item?.card?.card?.categories)} key={i} />
           ))}
         </div>
       </div>
