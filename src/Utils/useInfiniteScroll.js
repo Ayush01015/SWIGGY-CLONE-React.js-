@@ -14,7 +14,7 @@ const useInfiniteScroll = (query, pageNumber,latitude,longitude) => {
     
     setLoading(true);
     const url =
-      "https://corsproxy.org/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fupdate";
+      "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/update";
     const postData = {
       lat: latitude,
       lng: longitude,

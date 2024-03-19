@@ -67,11 +67,12 @@ const Body = () => {
     },
     [loading, hasMore]
   );
-
+  console.log(`${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
   async function getRestaurants() {
     const data = await fetch(
-      `${SWIGGY_PUBLIC_API}${latitude}%26lng%3D${longitude}%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING`
-    );
+      `${SWIGGY_PUBLIC_API}lat=${latitude}&lng=${longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`
+      );
+     
     const json = await data.json();
 
     let resData =
