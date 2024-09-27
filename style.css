@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  all: unset;
+}
+body {
+  background-color: white;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+html {
+  /* font-size: 62.5%; */
+  /* 1rem = 10px */
+  overflow-x: hidden;
+  /* border: 100px solid red; */
+}
+body {
+  overflow-x: hidden;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  margin: 0 auto;
+  margin-bottom: 4rem;
+
+  
+}
+
+.body-header {
+  width: 100%;
+  padding: 0.5em 0em 0.5em 0em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+  z-index: 1;
+}
+
+.body-component{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 525px) {
+  .body-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.primary-color {
+  color: #f99417;
+  text-decoration: underline;
+}
+.underline {
+  text-decoration: underline;
+}
+
+.card-component {
+  /* margin: 15px; */
+  width: 100%;
+  width: 300px;
+  min-width: 300px;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.4s ease;
+  transform: scale(0.8);
+  /* border: 1px solid red; */
+}
+
+.card-component:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: scale(0.85);
+}
+.disScale:hover{
+  transform: scale(0.8);
+}
+.card {
+  border: 1px solid #d5d5d5;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  cursor: pointer;
+}
+
+.rest-card-img{
+  width: 100%;
+  height: 200px;
+  object-fit: fill;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rest-card-img > img {
+  width: 100%;
+}
+
+.card-items {
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+  /* gap: 1rem; */
+  justify-content: space-evenly;
+  padding: 8px;
+}
+.card-items > span {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: gray;
+}
+#cuisines {
+  font-size: 0.8rem;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  width: 230px;
+  /* margin: 10px 0; */
+}
+.card-footer {
+  font-size: 0.8rem;
+}
+.card-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #48c479;
+  color: white;
+  width: 55px;
+}
+
+/* BODY NEW CSS */
+.tx-center {
+  text-align: center;
+}
+.catch-phrase {
+  /* border: 1px solid red; */
+  padding: 8px;
+  /* font-size: 0.8rem; */
+}
+.res-location {
+  /* font-size: 6rem; */
+  font-size: 1.7rem;
+}
+.text-gradient {
+  background: linear-gradient(to right, #fd8b00, rgb(198, 137, 228));
+  color: transparent;
+  background-clip: text;
+  color: #f99417;
+}
+
+.typing-effect {
+  font-size: 1rem;
+}
+.fullWidthSkeleton {
+  width: 100%;
+}
+@media (min-width: 425px) {
+  .res-location {
+    font-size: 2.4rem;
+  }
+
+  .typing-effect {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .res-location {
+    font-size: 4rem;
+  }
+
+  .typing-effect {
+    font-size: 2rem;
+  }
+}
+
+/* 👇 show the text gradient in modern browsers */
+@supports (--css: variables) {
+  .text-gradient {
+    background: linear-gradient(to right, #ff8c00, rgb(185, 57, 249));
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* NO RESTAURANTS FOUND CSS */
+
+.no-restaurant {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+  gap: 3rem;
+}
+
+.no-restaurant p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media (min-width: 320px) {
+  .no-restaurant {
+    padding: 0rem 1rem;
+  }
+}

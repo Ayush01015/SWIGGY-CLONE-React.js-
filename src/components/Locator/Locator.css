@@ -1,0 +1,27 @@
+
+
+.location-selector {
+    width: 95%;
+    height: 100%;
+    margin-top: 1rem;
+    padding-bottom: 0px;
+    border-radius: 5px;
+}
+@media (min-width: 425px) {
+    .location-selector{
+        max-width: 400px;
+    }
+}
+@media (min-width: 525px) {
+    .location-selector {
+      margin-top: 10px;
+    }
+
+    .location-selector {
+      width: 50%;
+      margin-right: 1.5rem;
+    }
+  }
+
+
+
